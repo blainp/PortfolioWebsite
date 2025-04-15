@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sensory Amplification Suit | Blain Polishak</title>
+  <link rel="stylesheet" href="../styles.css"/>
+  <link rel="icon" href="../Images/blain image temp.png" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <h1>Sensory Amplification Suit</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Overview</h2>
+      <p>
+        In grade 11 I had a shower thought about a system which would inform blind individuals about large incoming obstacles that were too far away to be felt by a cane. When COVID started later that year I decided I would start 
+        engineering this system and would use it as my upcoming Grade 12 capstone project. I worked on it throughout the summer and the following year until my Capstone deadline in december. 
+      </p>
+
+      <p>
+        I started the project by buying an ardunio and an array of ultrasonic sensors and vibration motors. I setup these components on a series of breadboards and testing rigs to ensure they were outputting accurate measurements and 
+        that my code was functioning as expected before mounting them to a shirt. I then 3D designed hot swappable mounts for the ultrasonic sensors which I could sew to the shirt, measuring the ammount of FOV overlap between the sensors
+        and ensureing they did not interfere with each other. My initial design for the sensors overlooked that the zipties I would use to secure the sensors which blocked pins so I redesigned it to use 2 zip ties which stay out of the way and which had a smaller
+        mounting plate which could be sewn to the shirt. 
+      </p>
+
+      <p>
+        After sewing these sensor mounts to the shirt I modified an existing case design for the arduino to fit on my belt and ran wiring for the sensors down to the arduino. I used the adhesive that came on the vibration motors to connect
+        them to the shirt as it was strong enough to hold them in place without additional sewing or gluing. When I started testing the complete system I ran into issues in that the arduino was reading the correct values but the motors were not
+        vibrating correctly. After painfully checking the code many times and every single one of the ~150 wires, I realised that one wire had an unstable connection which I replaced. After fixing this issue the system worked well but still required some 
+        tuning in sensor reactiveness and vibration strength in order to be as intuitive as possible. I then did a test demonstration which was recorded and is shown below in which I identify the positions of the walls and obstacles around me as I walk throughout my home.
+      </p>
+    </section>
+
+    <section>
+      <h2>Gallery</h2>
+      <div class="projectSite-grid">
+        <img src="../Images/SensorShirt/shirt.png" class="projectSite-img" alt="Project image 1">
+        <img src="../Images/SensorShirt/20210108_022131.jpg" class="projectSite-img" alt="Project image 1">
+        <img src="../Images/SensorShirt/IMG_20200312_184430.jpg" class="projectSite-img" alt="Project image 1">
+        <img src="../Images/SensorShirt/IMG_20200318_152622.jpg" class="projectSite-img" alt="Project image 1">
+      </div>
+    </section>
+
+    <section>
+      <h2>Video Demos</h2>
+      <div class="text-center">
+        <video width="60%" height="400" controls>
+          <source src="../Images/SensorShirt/20210118_220739 (1).mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="text-center">
+        <video width="60%" height="400" controls>
+          <source src="../Images/SensorShirt/IMG_0067 (1).mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="text-center">
+        <video width="60%" height="400" controls>
+          <source src="../Images/SensorShirt/Slow 2 (1).mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      
+    </section>
+
+    <section>
+      <h2>Technologies Used</h2>
+      <div class="project-tags">
+        <span class="tag">Embedded C</span>
+        <span class="tag">Wearable Technology Design</span>
+        <span class="tag">3D Modelling and Printing</span>
+        <span class="tag">Microsoldering</span>
+        <!-- Add relevant tags per project -->
+      </div>
+    </section>
+
+    <div class="text-center" style="margin-top: 2rem;">
+      <a href="../index.html#software" class="btn1">← Back to Projects</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Blain Polishak. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
