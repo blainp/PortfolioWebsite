@@ -248,7 +248,7 @@ footer {
         .projectSite-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
+        gap: 1rem;
         margin-top: 1.5rem;
         width:80%;
         margin-left: auto;
