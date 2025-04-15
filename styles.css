@@ -243,6 +243,22 @@ footer {
     .project-grid {
         grid-template-columns: 1fr;
     }
+
+    /* Project Grid */
+        .projectSite-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 1.5rem;
+        width:80%;
+        margin-left: auto;
+        margin-right: auto;
+        }
+        .projectSite-img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+        }
 }
 
 /* Utility Classes */
