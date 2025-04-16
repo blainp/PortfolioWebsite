@@ -130,8 +130,8 @@ nav {
 
 @media (max-width: 768px) {
   .video-wrapper iframe {
-    width: 60%;
-    height: 150px
+    width: 80%;
+    height: 200px
   }
 }
 
