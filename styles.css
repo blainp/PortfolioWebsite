@@ -122,8 +122,8 @@ nav {
 }
 
 .video-wrapper iframe {
-  width: 60%;
   height: 400px;
+  width: 60%;
   border: none;
 }
 
