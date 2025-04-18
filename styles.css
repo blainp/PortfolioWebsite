@@ -6,10 +6,10 @@
 }
 
 :root {
-    --primary: #2680aa;
-    --dark: #1c3044;
+    --primary: #4f9ab3;
+    --dark: #1b1b1b;
     --light: #f8f9fa;
-    --gray: #8d99ae;
+    --gray: #21232c;
     --accent: #ff006e;
 }
 
@@ -178,7 +178,7 @@ section {
 
 
 .project-card {
-    background-color: white;
+    background-color: rgb(43, 43, 43);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
