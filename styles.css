@@ -216,8 +216,8 @@ section {
 }
 
 .tag {
-    background-color: rgba(58, 134, 255, 0.1);
-    color: var(--primary);
+    background-color: rgba(71, 128, 150, 0.308);
+    color: var(--light);
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
     font-size: 0.8rem;
