@@ -7,9 +7,9 @@
 
 :root {
     --primary: #4f9ab3;
-    --dark: #1b1b1b;
+    --gray: #1b1b1b;
     --light: #f8f9fa;
-    --gray: #21232c;
+    --dark: #21232c;
     --accent: #ff006e;
 }
 
