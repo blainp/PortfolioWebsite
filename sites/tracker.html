@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anti-Kidnapping Device | Blain Polishak</title>
+  <link rel="stylesheet" href="../styles.css"/>
+  <link rel="icon" href="../Images/blain image temp.png" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <h1>Integrated Anti-Kidnapping Device</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Overview</h2>
+      <p>
+        A friendd of mine is very anxious about the thought of being kidnapped, especially as a woman who travels for work.
+        I decided to build a device that could act as a layer of protection, in addition to the standard safety protections like
+        location sharing. The situation which worried her the most was one in which she was dosed an unable to think clearly or 
+        was physically kidnapped, with the offender getting rid of her phone so that her location was no longer trackable by family
+        members, and removing her way to call for help.
+      </p>
+      <p>
+        I knew I wanted to design a small and inconspicuous wearable device which could alert friends and family in a situation such as this,
+        and initially thought an apple watch would work great. When I tested the apple watch though, I found that apple actually added no such 
+        features for the apple watch, such as being able to send alerts if it disconnects from the phone, and it being a visible smart
+        wearable device an attacker might target it and through it away in addition to a phone.
+        I then figured an AirTag would work well, as they use crowdsourced location tracking by pinging anyone else's iphone to update their location,
+        but, recently apple rolled out a patch that informs anyone with an iphone that an AirTag is tracking them if it is beside them while they are walking,
+        or driving around. Although this feature prevents stalkers from abusing the power of airtags, it makes them substantially less suitable for my use.
+        Additionally, I can't rely on any other trackers like Tile as I would need to rely on the fact that many individuals had their apps to 
+        update the device's location, which is much rarer than them possessing an Apple phone.    
+        I then remembered that Apple had released an amazing app called "Shortcuts" which allowed users to create custom routines and macros
+        based on device states such as wifi and bluetooth. However, there was no functionality relating to the products listed above, so they 
+        still wouldn't work for my purpose. 
+      </p>
+      <p>
+        I decided I was going to attempt to make an integrated device, consisting of an ESP32-C, recycled vape battery cell, and USB-C battery
+        charging board which suited my needs. I first attempted to flash the ESP32-C with low power bluetooth code which I would use to check the 
+        connection status to the phone, but found this drained too much device power, and was too low in bluetooth signal power, to be recognized
+        as a device by the bluetooth section in Iphone settings. I decided to opt for a Wifi-based system which would, upon being powered on,
+        output a low-power, low polling rate wifi discovery service, and once connected to, would go into a very low power, sleep-like state,
+        which only turned on to ensure it was still connected and update the phone with connection status. This let the device battery last for '
+        a substantial ammount of time before requiring a recharge (18+hours) in spite of its relatively small (600mah) battery.
+      </p>
+      <p>
+        On any Iphone you can simply connect to the device, open the "Shortcuts" app, and create a routine for when your phone disconnects from the ESP32 wifi network, such as 
+        prompting the user before sending an alert text 10 min later. You can customise it to send any message you please, such as "Phone disconnected from tracker, call me to '
+        make sure i'm safe", which you can setup to send to any of your contacts.
+
+        Although the user is connecting to this wifi network, internet connection is not impaired as long as they have mobile data, as Iphones will prompt the user to 
+        "Use without internet" whenever connected to a network that does not supply internet connection, leaving the Iphone connected to the ESP32 network while using 
+        the user's mobile data for internet connection. 
+      </p>
+      <p>
+        The device is fairly small, approximately 2*4*3cm, but could be reduced in size with a more polished design, my estimate being to about 1.5*3*3cm. This size allows it 
+        to be attached in an inconspicuous area, such as under a shirt or on a belt or even worn as an ankel bracelet. Once attached the user can simply flip the low profile power
+        switch, ensure the LED is lit up on the device (it has powered on correctly) and connect to the ESP-32 wifi network. After being used the user can power it off and cancel the 
+        shortcut before it completes and sends an alert, or can even just send a follow up message to the alert message saying the device disconnect was intentional.
+
+        The biggest flaw with this design is losing your phone while its active, as you would have no way to inform your recipient that you are safe. A partial solution to this flaw could be 
+        memorizing your recipient's phone number and calling them from a payphone, or borrowing someone else's phone to call them, and to inform them you are ok. However,
+        I doubt there is a way to taylor this design and implement a sure-fire fix to a situation such as this  
+      </p>
+
+    </section>
+
+    <section>
+      <h2>Gallery</h2>
+      <div class="projectSite-grid">
+
+
+        <img src="../Images/Battery/trackercase1" class="projectSite-img" alt="Project image 1">
+        <img src="../Images/Battery/trackercase2" class="projectSite-img" alt="Project image 1">
+        <img src="../Images/Battery/trackercase3" class="projectSite-img" alt="Project image 1">
+        <img src="../Images/Battery/trackercase4" class="projectSite-img" alt="Project image 1">
+        <img src="../Images/Battery/trackercase5" class="projectSite-img" alt="Project image 1">
+        <img src="../Images/Battery/trackercase6" class="projectSite-img" alt="Project image 1">
+
+        
+      </div>
+    </section>
+
+    <section>
+      <h2>Technologies Used</h2>
+      <div class="project-tags">
+        <span class="tag">Recycled Technology</span>
+        <span class="tag">Soldering</span>
+        <span class="tag">Wiring</span>
+        <span class="tag">Battery Technology</span>
+        <span class="tag">3D Modelling and Printing</span>
+        <span class="tag">ESP-32</span>
+        <span class="tag">C coding</span>
+        <span class="tag">Safety Device</span>
+        <!-- Add relevant tags per project -->
+      </div>
+    </section>
+
+    <div class="text-center" style="margin-top: 2rem;">
+      <a href="../index.html#software" class="btn1">← Back to Projects</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Blain Polishak. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
