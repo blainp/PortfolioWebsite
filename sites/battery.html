@@ -5,54 +5,80 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Recycled Power Bank | Blain Polishak</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css"/>
   <link rel="icon" href="../Images/blain image temp.png" type="image/x-icon">
 </head>
 <body>
-  <header>
-    <div class="container header-content">
+  <div class="page-top">
+    <div class="page-top-poster" style="background-image: url('../Images/Battery/batterybankpic.png'); --poster-size: auto 150%; --poster-pos: 80% 40%" aria-hidden="true"></div>
+    <div class="container">
+      <a class="back-link" href="../index.html#hardware">&larr; All projects</a>
       <h1>Recycled Vape Battery Cell Power Bank</h1>
+      <p class="summary">A 30,000&nbsp;mAh, 100&nbsp;W USB-C power bank built from 35 lithium-ion cells salvaged from discarded disposable vapes, with a custom PCB and 3D-printed case.</p>
     </div>
-  </header>
+  </div>
 
   <main class="container">
     <section>
       <h2>Overview</h2>
-      <p>
-        In recent years, with the rise of "disposable" vapes, I have found myself running across littered and discarded vapes on the ground at parks and public places more and more. 
-        I was surprised when I learned that these vapes actually contain rechargeable lithium ion battery cells, which are used once and have no way of being recharged in the vape systems.
-        When I saw a design online for a battery pack which could be constructed out of these vape cells from a British YouTuber I knew I had to try and build one myself as it seemed interesting and fun, in addition to 
-        being a great way to recycle and prolong the life of these batteries that would otherwise pollute my town or end up in a landfill. I asked all my friends to give me their old vapes and started collecting those I found littered
-        instead of simply recycling them. Eventually, I amassed a collection of around 75 vapes and found that a certain common vape model had 1000mAh "18350" cells which would work best. After testing the cells, I ended up with just over
-        my required number of 35 working cells. 
-      </p>
-      <p>
-        The design I had found did not work however, as the vapes used in Britain are different from those in Canada, and I had to modify the PCB and 3D model of the case to fit my specific cells. Eventually, I had landed on a design that worked,
-        and after printing the cell holder and case and ensuring it would fit, I custom ordered the PCB from a PCB manufacturing company. I opted not to get a pre-fab PCB and instead source the components myself as I wanted to get better at 
-        SMD soldering and wanted to try using soldering paste for multiple micro components at once. After building the PCB, I put the bank together with a power bank control board from China that allowed up to 100W output from its USB-C port and tested it.
-        The first iteration worked well, and I started using it as my primary power bank as it had a large capacity(around 30,000mAh) and supported high wattage output for my laptop. I eventually decided to re-print the case in Carbon Fiber infused PETG 
-        as the initial print was PLA which was not very durable and was getting damaged rather easily from common use. I also modified the case design to include spacers over some of the screw heads on one side as they poked beyond the flat 
-        end of the case and were scratching my desk when the bank was slid around.
-      </p>
-      <p>
-        Overall, I am very proud of the finished product as I use it regularly as my primary power bank to charge my laptop and phone, and it has held up well to the wear and tear of daily use. 
-        I also love that I was able to recycle the batteries from vapes that would have otherwise been thrown away and that I was able to learn so much about PCB design and SMD soldering in the process.
-      </p>
+      <div class="overview-grid">
+        <div>
+          <p>
+            With the rise of "disposable" vapes, I kept running across discarded vapes littered at parks and public places. I was surprised to learn that they actually contain rechargeable lithium-ion cells,
+            which are used once and thrown away, since the vapes have no way to recharge them.
+          </p>
+          <p>
+            When I saw a design online from a British YouTuber for a battery pack built from these cells, I knew I had to build one myself. It seemed like a fun project, and a great way to give these batteries a second life instead of
+            having them pollute my town or end up in a landfill. I asked my friends for their old vapes and started collecting the ones I found littered instead of just recycling them. Eventually I had around 75 vapes,
+            and found that one common model held 1000&nbsp;mAh "18350" cells that would work best. After testing every cell, I ended up with just over the 35 working cells I needed.
+          </p>
+        </div>
+        <aside class="facts">
+          <h3>Project facts</h3>
+          <dl>
+            <div><dt>Type</dt><dd>Personal hardware and recycling project</dd></div>
+            <div><dt>Cells</dt><dd>35 recycled 1000&nbsp;mAh 18350 Li-ion cells from about 75 vapes</dd></div>
+            <div><dt>Capacity and output</dt><dd>About 30,000&nbsp;mAh, up to 100&nbsp;W over USB-C</dd></div>
+            <div><dt>Electronics</dt><dd>Custom PCB hand-populated with solder paste, 100&nbsp;W power bank control board</dd></div>
+            <div><dt>Enclosure</dt><dd>3D-printed cell holder and case, reprinted in carbon fibre PETG</dd></div>
+          </dl>
+        </aside>
+      </div>
     </section>
 
+    <div class="media-row">
+      <figure><img src="../Images/Battery/IMG_4541.jpg" alt="Collected disposable vapes being taken apart for their cells"></figure>
+      <figure><img src="../Images/Battery/IMG_4546.jpg" alt="Recycled cells fitted into the 3D-printed cell holder"></figure>
+    </div>
+
     <section>
-      <h2>Gallery</h2>
-      <div class="projectSite-grid">
-
-
-        <img src="../Images/Battery/IMG_4546.jpg" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/Battery/IMG_4541.jpg" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/Battery/IMG_4645.jpg" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/Battery/IMG_4556.jpg" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/Battery/IMG_4611.jpg" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/Battery/batterybankpic.png" class="projectSite-img" alt="Project image 1">
-        
+      <h2>Design and build</h2>
+      <p>
+        The original design didn't work as-is, since the vapes sold in Britain use different cells from those in Canada, so I modified the PCB and the 3D model of the case to fit my cells. Once I landed on a design that worked,
+        I printed the cell holder and case to check the fit, then custom ordered the PCB from a manufacturer. I chose not to get it pre-assembled and sourced the components myself, as I wanted to get better at SMD soldering
+        and try using solder paste to place many tiny components at once.
+      </p>
+      <div class="media-row">
+        <figure><img src="../Images/Battery/IMG_4611.jpg" alt="The custom PCB with surface-mount components soldered on"></figure>
+        <figure><img src="../Images/Battery/IMG_4556.jpg" alt="The first PLA case with the cells visible through it"></figure>
       </div>
+      <p>
+        After building the PCB, I assembled the bank with a power bank control board that allows up to 100&nbsp;W from its USB-C port, and tested it. The first iteration worked well, and it became my main power bank thanks to its
+        large capacity (around 30,000&nbsp;mAh) and high enough output to charge my laptop.
+      </p>
+      <p>
+        The first case was printed in PLA, which wasn't very durable and was getting damaged by everyday use, so I reprinted it in carbon fibre infused PETG. I also added spacers over some of the screw heads on one side,
+        since they stuck out past the flat end of the case and were scratching my desk whenever the bank slid around.
+      </p>
+      <div class="media-row">
+        <figure><img src="../Images/Battery/IMG_4645.jpg" alt="The carbon fibre PETG case, labelled Vape Cell Pack V1"></figure>
+        <figure><img src="../Images/Battery/batterybankpic.png" alt="The finished power bank with its USB ports"></figure>
+      </div>
+      <p>
+        Overall, I'm very proud of the finished product. I use it regularly as my main power bank for my laptop and phone, and it has held up well to daily wear and tear. I also love that it reuses batteries that would
+        otherwise have been thrown away, and that I learned so much about PCB design and SMD soldering along the way.
+      </p>
     </section>
 
     <section>
@@ -69,14 +95,15 @@
     </section>
 
     <div class="text-center" style="margin-top: 2rem;">
-      <a href="../index.html#software" class="btn1">← Back to Projects</a>
+      <a href="../index.html#hardware" class="btn1">← Back to Projects</a>
     </div>
   </main>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Blain Polishak. All rights reserved.</p>
+      <p>&copy; 2026 Blain Polishak. All rights reserved.</p>
     </div>
   </footer>
+  <script src="../media-rows.js"></script>
 </body>
 </html>

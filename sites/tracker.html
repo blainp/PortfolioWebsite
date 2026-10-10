@@ -1,112 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Anti-Kidnapping Device | Blain Polishak</title>
-  <link rel="stylesheet" href="../styles.css"/>
-  <link rel="icon" href="../Images/blain image temp.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wearable Separation Alert Device | Blain Polishak</title>
+  <meta name="description" content="A hidden ESP32-C3 wearable that automatically alerts emergency contacts if the wearer's phone is forcibly taken away from them.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="../Images/blain image temp.png">
 </head>
 <body>
-  <header>
-    <div class="container header-content">
-      <h1>Integrated Anti-Kidnapping Device</h1>
+  <div class="page-top">
+    <div class="page-top-poster" style="background-image: url('../Images/tracker/tracker.png')" aria-hidden="true"></div>
+    <div class="container">
+      <a class="back-link" href="../index.html">&larr; All projects</a>
+      <h1>Wearable Separation Alert Device</h1>
+      <p class="summary">A hidden ESP32-C3 wearable that automatically alerts emergency contacts if the wearer's phone is forcibly taken away from them.</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://github.com/blainp/Integrated-ESP32-Wearable-for-Automated-Distress-Separation-Alerts" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> View full project on GitHub</a>
+      </div>
     </div>
-  </header>
+  </div>
 
   <main class="container">
     <section>
       <h2>Overview</h2>
-      <p>
-        A friend of mine, who is a woman that travels for work, is very anxious about the thought of being kidnapped. The specific situation 
-        which worries her the most is one in which she was physically kidnapped or forced away, with the attacker discarding of her phone, meaning
-        she was no longer able to contact help. After hearing of this concern, I decided to build a device that could act as a layer of protection, 
-        in addition to the standard safety protections like location sharing.
-      </p>
-      <p>
-        I knew I wanted to design a small and inconspicuous wearable device which could alert friends and family in a situation such as this,
-        and initially thought an Apple Watch would work great. When I tested the Apple Watch, however, I found that Apple actually added no such 
-        features, like being able to send alerts if the watch disconnects from a phone.
-        I then figured an AirTag would work well, as they use crowdsourced location tracking by pinging anyone else's iphone to update their location,
-        but, recently Apple rolled out a patch that informs anyone with an iphone that an AirTag is tracking them if it is beside them while they are walking,
-        or driving around. Although this feature prevents stalkers from abusing the power of Airtags, it makes them substantially less suitable for my use.
-        Additionally, I can't rely on any other trackers like Tile as I would need to rely on the fact that many individuals had their apps to 
-        update the device's location, which is much rarer than them possessing an Apple phone.    
-        I then remembered that Apple had released an amazing app called "Shortcuts" which allowed users to create custom routines and macros
-        based on device states such as Wi-Fi and Bluetooth. However, Airtags and Apple Watches still had none of the desired functionality through this app,
-        and I decided I would have to create the product myself.
-      </p>
-      <p>
-        I decided I was going to attempt to make an integrated device, consisting of an ESP32-C, recycled vape battery cell, and USB-C battery
-        charging board which suited my needs. I first attempted to flash the ESP32-C with low power Bluetooth code which I would use to check the 
-        connection status to the phone, but found this drained too much device power, and was too low in Bluetooth signal power, to be recognized
-        as a device by the Bluetooth section in Iphone settings. I decided to opt for a Wi-Fi-based system which would, upon being powered on,
-        output a low-power, low polling rate Wi-Fi discovery service, and once connected to, would go into a very low power, sleep-like state,
-        which only turned on to ensure it was still connected and update the phone with connection status. This let the device battery last for
-        a substantial amount of time before requiring a recharge (18+hours) in spite of its relatively small (600mah) battery.
-      </p>
-      <p>
-        On any Iphone you can simply connect to the device, open the "Shortcuts" app, and create a routine for when your phone disconnects from the ESP32 Wi-Fi network, such as 
-        prompting the user before sending an alert text 10 min later. You can customise it to send any message you please, such as "Phone disconnected from tracker, call me to
-        make sure I'm safe", which you can setup to send to any of your contacts.
+      <div class="overview-grid">
+        <div class="prose">
+          <p>This project was built for a friend who travels alone for work, and who has a fear of being taken, having her phone thrown away, and having no way to call for help. Location sharing doesn't help once the phone is gone, and Apple Watches and AirTags can't send alerts after being separated from a phone.</p>
+            <div class="media-row">
+            <figure>
+              <img src="https://github.com/user-attachments/assets/f7e0c13f-399c-461b-8a2c-9a949f581fa2" alt="System diagram of the wearable alert device" loading="lazy">
+            </figure>
+            <figure>
+              <img src="https://github.com/user-attachments/assets/fe27d63d-b476-471a-a850-adea5ee02db3" alt="3D model of the device enclosure" loading="lazy">
+            </figure>
+          </div>
+          <p>My fix for this situation was to have the phone itself send an alert, in the event it was removed from the user, with the alert timing, urgency, and overall parameters being user-customizable, based on the theoretical situation which the user is worried about. To do this, the device hosts a small Wi-Fi network that the wearer's iPhone stays connected to. An iOS Shortcuts automation watches that connection, and if the phone and device are pulled apart, it sends a custom message, such as the wearer's current location, to chosen contacts. The phone can keep using mobile data while connected to this network, so internet and GPS aren't affected.</p>
+          <p>Bluetooth was tried first, but drew too much power, wasn't easily visible, and didn't maintain a strong enough connection to the iPhone. The Wi-Fi version idles in a low-power state once connected, giving 18+ hours from a 600&nbsp;mAh cell, recycled from a vape.</p>
+        </div>
+      <aside class="facts">
+        <h3>Project facts</h3>
+        <dl>
+          <div><dt>Type</dt><dd>Personal safety hardware project</dd></div>
+          <div><dt>Hardware</dt><dd>ESP32-C3, recycled 600&nbsp;mAh Li-ion cell, USB-C charging board, power switch</dd></div>
+          <div><dt>Battery life</dt><dd>18+ hours per charge</dd></div>
+          <div><dt>Phone side</dt><dd>Any modern iPhone, using the Shortcuts app</dd></div>
+          <div><dt>Size</dt><dd>About 2 &times; 4 &times; 3 cm</dd></div>
+        </dl>
+      </aside>
+      </div>
+    </section>
 
-        Although the user is connecting to this Wi-Fi network, internet connection is not impaired as long as they have mobile data, as Iphones will prompt the user to 
-        "Use without internet" whenever connected to a network that does not supply internet connection, leaving the Iphone connected to the ESP32 network while using 
-        the user's mobile data for internet connection. 
-      </p>
-      <p>
-        The device is fairly small, approximately 2*4*3cm, but could be reduced in size with a more polished design, my estimate being to about 1.5*3*3cm. This size allows it 
-        to be attached in an inconspicuous area, such as under a shirt or on a belt or even worn as an ankle bracelet. Once attached the user can simply flip the low profile power
-        switch, ensure the LED is lit up on the device (it has powered on correctly) and connect to the ESP-32 Wi-Fi network. After being used the user can power it off and cancel the 
-        shortcut before it completes and sends an alert, or can even just send a follow up message to the alert message saying the device disconnect was intentional.
 
-        The biggest flaw with this design is losing your phone while its active, as you would have no way to inform your recipient that you are safe. A partial solution to this flaw could be 
-        memorizing your recipient's phone number and calling them from a payphone, or borrowing someone else's phone to call them, and to inform them you are ok. However,
-        I doubt there is a way to tailor this design and implement a sure-fire fix to a situation such as this  
-      </p>
-
+    <section>
+      <h2>Hardware</h2>
+    <div class="media-row wide">
+      <figure>
+        <img src="https://github.com/user-attachments/assets/245cce53-bb9a-4866-85ff-58a84818fe8b" alt="Components and wiring of the wearable alert device" loading="lazy">
+      </figure>
+    </div>
     </section>
 
     <section>
       <h2>Gallery</h2>
       <div class="projectSite-grid">
-
-
-        <img src="../Images/tracker/trackercase1.jpg" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/tracker/trackercase2.jpg" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/tracker/trackercase3.jpg" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/tracker/trackercase4.jpg" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/tracker/trackercase5.jpg" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/tracker/trackercase6.jpg" class="projectSite-img" alt="Project image 1">
-
-        
+        <img src="../Images/tracker/trackercase1.jpg" class="projectSite-img" alt="Wearable alert device, build photo 1" loading="lazy">
+        <img src="../Images/tracker/trackercase2.jpg" class="projectSite-img" alt="Wearable alert device, build photo 2" loading="lazy">
+        <img src="../Images/tracker/trackercase3.jpg" class="projectSite-img" alt="Wearable alert device, build photo 3" loading="lazy">
+        <img src="../Images/tracker/trackercase4.jpg" class="projectSite-img" alt="Wearable alert device, build photo 4" loading="lazy">
+        <img src="../Images/tracker/trackercase5.jpg" class="projectSite-img" alt="Wearable alert device, build photo 5" loading="lazy">
+        <img src="../Images/tracker/trackercase6.jpg" class="projectSite-img" alt="Wearable alert device, build photo 6" loading="lazy">
       </div>
     </section>
 
     <section>
-      <h2>Technologies Used</h2>
+      <h2>Skills and technologies</h2>
       <div class="project-tags">
+        <span class="tag">ESP32-C3</span>
+        <span class="tag">C++ / Arduino</span>
+        <span class="tag">Low-Power Design</span>
+        <span class="tag">iOS Shortcuts</span>
+        <span class="tag">Battery Technology</span>
         <span class="tag">Recycled Technology</span>
         <span class="tag">Soldering</span>
-        <span class="tag">Wiring</span>
-        <span class="tag">Battery Technology</span>
         <span class="tag">3D Modelling and Printing</span>
-        <span class="tag">ESP-32</span>
-        <span class="tag">C coding</span>
-        <span class="tag">Safety Device</span>
-        <!-- Add relevant tags per project -->
       </div>
     </section>
 
-    <div class="text-center" style="margin-top: 2rem;">
-      <a href="../index.html#software" class="btn1">← Back to Projects</a>
+    <div class="repo-cta">
+      <p>Source code, wiring diagrams, 3D models and full documentation are in the GitHub repository.</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://github.com/blainp/Integrated-ESP32-Wearable-for-Automated-Distress-Separation-Alerts" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> View full project on GitHub</a>
+        <a class="btn-outline" href="../index.html">Back to all projects</a>
+      </div>
     </div>
   </main>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Blain Polishak. All rights reserved.</p>
+      <p>&copy; 2026 Blain Polishak</p>
     </div>
   </footer>
+  <script src="../media-rows.js"></script>
 </body>
 </html>

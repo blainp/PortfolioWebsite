@@ -1,272 +1,420 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blain Polishak | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="Images/blain image temp.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blain Polishak | Portfolio</title>
+  <meta name="description" content="Software and hardware projects by Blain Polishak, Computing Science student at Thompson Rivers University.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="Images/blain image temp.png">
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <img src="/Images/blain image temp.jpeg" alt="Your Profile" class="profile-img">
-            <h1>Blain Polishak</h1>
-            <p>Software Engineer & Hardware Enthusiast</p>
+  <header class="hero">
+    <div class="container hero-inner">
+      <img src="Images/blain image temp.png" alt="Blain Polishak" class="profile-img">
+      <div>
+        <h1>Blain Polishak</h1>
+        <p class="role">Software developer and hardware builder</p>
+        <p class="intro">I'm an aspiring engineer with experience in both software development and hardware electronics. My background is in computer science and engineering, and I like solving problems with practical solutions.</p>
+        <p class="intro">When I'm not coding or soldering, you can find me working out or playing games with friends. I'm always learning and exploring new technologies to grow my skill set.</p>
+        <div class="hero-actions">
+          <a class="btn" href="https://github.com/blainp" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a>
+          <a class="btn-outline" href="mailto:blainpolishak123@gmail.com">Email me</a>
         </div>
-    </header>
+      </div>
+    </div>
+  </header>
 
-    <nav>
-        <div class="container nav-container">
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#software">Software Projects</a></li>
-                <li><a href="#hardware">Hardware Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+  <nav>
+    <div class="container nav-container">
+      <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#featured">Featured</a></li>
+        <li><a href="#software">Software</a></li>
+        <li><a href="#hardware">Electroncis</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section id="experience">
+      <h2>Work experience and publications</h2>
+      <div class="exp-grid">
+        <div>
+          <h3>Work experience</h3>
+          <ul class="exp-list">
+            <li>
+              <strong>Software Developer and IT Systems Analyst (Internship), BC Hydro</strong>
+              <span class="muted">May 2025 – Aug 2025 · Vancouver, BC (hybrid)</span>
+              <p>Analyzed and improved existing systems, defined requirements and worked with users to design and develop internal web applications that support business operations and BC Hydro's organizational goals.</p>
+              <div class="project-tags">
+                <span class="tag">C#</span>
+                <span class="tag">Razor (.cshtml)</span>
+                <span class="tag">HTML</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Requirements Gathering</span>
+                <span class="tag">Systems Analysis</span>
+                <span class="tag">Web Application Design</span>
+                <span class="tag">User Collaboration</span>
+              </div>
+            </li>
+          </ul>
         </div>
-    </nav>
-
-    <main class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                I'm a passionate aspiring engineer with experience in both software development and hardware electronics. 
-                With a background and passion founded in Computer Science and Engineering, I excel in problem solving with clean code, practical electronic designs,
-                and innovative projects.
-            </p>
-            <p>
-                When I'm not coding or soldering, you can find me working out or playing games with friends. I'm constantly learning 
-                and exploring new technologies to expand my skillset.
-            </p>
-        </section>
-
-        <section id="software">
-            <h2>Software Engineering Projects</h2>
-            <div class="project-grid">
-                <!-- Software Project 1 -->
-                <div class="project-card">
-                    <img src="/Images/BadTakes/Screenshot 2025-04-02 at 9.06.32 PM.png" alt="Project 1" class="project-img">
-                    <div class="project-content">
-                        <h3>Dynamic Media Brand Website</h3>
-                        <p>Custom, fully responsive, media website, developed and deployed for a local media brand. Hosted on cloudflare.
-                            </p>
-                        <div class="project-tags">
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">Asynchronous Javascript</span>
-                            <span class="tag">Github</span>
-                            <span class="tag">Website Hosting</span>
-                            <span class="tag">External Embeds</span>
-                        </div>
-                       
-                    </div>
-                    <a href="sites/mediaWebsite.html" class="btn" style="margin-bottom: 1rem; margin-left: 1rem">View Project</a>
-                </div>
-
-                <!-- Software Project 2 -->
-                <div class="project-card">
-                    <img src="/Images/Database/Databasepic.JPG" alt="Project 2" class="project-img">
-                    <div class="project-content">
-                        <h3>SQL Inventory Managment Database Website</h3>
-                        <p>SQL inventory management system which enables efficient catalog and retrieval of personal items. Created to help me keep track of tools and materials.</p>
-                        <div class="project-tags">
-                            <span class="tag">PHP</span>
-                            <span class="tag">SQL</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">AJAX</span>
-                            <span class="tag">XAMPP</span>
-                        </div> 
-                    </div>
-                    <a href="sites/inventory.html" class="btn" style="margin-top: 1rem; margin-left: 1rem; margin-bottom: 1rem">View Project</a>
-                </div>
-
-                <!-- Software Project 3 -->
-                <div class="project-card">
-                    <img src="/Images/Mobile App/AndroidAppPic.JPG" alt="Project 3" class="project-img">
-                    <div class="project-content">
-                        <h3>Android Application Development</h3>
-                        <p>Java-based Android applications built in Android Studio, including BEDMAS calculator and password manager, with user authentication and multiple accounts</p>
-                        <div class="project-tags">
-                            <span class="tag">Java</span>
-                            <span class="tag">Android Studio</span>
-                            <span class="tag">Android Full Stack</span>
-                        </div>
-                        
-                    </div>
-                    <a href="sites/android.html" class="btn" style="margin-bottom: 1rem; margin-left: 1rem; margin-top:1rem;">View Project</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="hardware">
-            <h2>Hardware & Electronics Projects</h2>
-            <div class="project-grid">
-                <!-- Hardware Project 1 -->
-                <div class="project-card">
-                    <img src="/Images/Farnsworth/fusor.png" alt="Hardware Project 1" class="project-img">
-                    <div class="project-content">
-                        <h3>Farnsworth Fusor Reactor</h3>
-                        <p>Demo fusion reactor with a custom high-voltage transformer and rectifier circuit which can sustain low levels of nuclear fusion.
-                            </p>
-                        <div class="project-tags">
-                            <span class="tag">HV Circuitry</span>
-                            <span class="tag">Soldering</span>
-                            <span class="tag">3D Modelling and Printing</span>
-                            <span class="tag">Vacuum Chamber Design</span>
-                        </div>
-                    </div>
-                    <a href="sites/farnsworth.html" class="btn"  style="margin-bottom: 1rem; margin-left: 1rem; margin-top:2.25rem;">View Project</a>
-                </div>
-
-                <!-- Hardware Project 2 -->
-                <div class="project-card">
-                    <img src="/Images/tracker/tracker.png" alt="Hardware Project 1" class="project-img">
-                    <div class="project-content">
-                        <h3>Anti-Kidnapping Device</h3>
-                        <p>Integrated device which alerts contacts if phone is disconnected, designed for situations in which an attacker removes your phone</p>
-                        <div class="project-tags">
-                            <span class="tag">Recycled Technology</span>
-                            <span class="tag">Soldering</span>
-                            <span class="tag">Wiring</span>
-                            <span class="tag">Battery Technology</span>
-                            <span class="tag">3D Modelling and Printing</span>
-                            <span class="tag">ESP-32</span>
-                            <span class="tag">C coding</span>
-                            <span class="tag">Safety Device</span>
-                        </div>
-                    </div>
-                    <a href="sites/tracker.html" class="btn"  style="margin-bottom: 1rem; margin-left: 1rem; margin-top:2.25rem;">View Project</a>
-                </div>
-
-                <!-- Hardware Project 2 -->
-                <div class="project-card">
-                    <img src="/Images/Spiderman/climbing hard.png
-                    " alt="Hardware Project 2" class="project-img">
-                    <div class="project-content">
-                        <h3>Vacuum Pump Wall Climbing Suit</h3>
-                        <p>Fully custom, vacuum-powered, wearable system for flat vertical wall climbing with real-time PSI monitoring and feedback.</p>
-                        <div class="project-tags">
-                            <span class="tag">Embedded C</span>
-                            <span class="tag">Vacuum Pad Design</span>
-                            <span class="tag">3D Modeling and Printing</span>
-                            <span class="tag">Wearable Technology Design</span>
-                            <span class="tag">Vacuum Sensor and Motor Circuitry</span>
-                            <span class="tag">Soldering</span>
-                            
-                        </div>
-                    </div>
-                    <a href="sites/spiderman.html" class="btn"  style="margin-bottom: 1rem; margin-left: 1rem">View Project</a>
-                </div>
-
-                <!-- Hardware Project 3 -->
-                <div class="project-card">
-                    <img src="/Images/SensorShirt/shirt.png" alt="Hardware Project 3" class="project-img">
-                    <div class="project-content">
-                        <h3>Sensory Amplification Shirt for the Visually Impaired</h3>
-                        <p>Wearable distance sensing and haptic feedback assistive device which conveys obstacle proximity and direction to visually impaired users
-                            </p>
-                        <div class="project-tags">
-                            <span class="tag">Embedded C</span>
-                            <span class="tag">Wearable Technology Design</span>
-                            <span class="tag">3D Modelling and Printing</span>
-                            <span class="tag">MicroSoldering</span>
-                        </div>
-                    </div>
-                    <a href="sites/sensorShirt.html" class="btn"  style="margin-bottom: 1rem; margin-left: 1rem; margin-top: 3rem">View Project</a>
-                </div>
-                <!-- Hardware Project 1 -->
-                <div class="project-card">
-                    <img src="/Images/Arcade/arcade.png" alt="Hardware Project 1" class="project-img">
-                    <div class="project-content">
-                        <h3>Custom Arcade Machine and Arcade Game</h3>
-                        <p>Custom built arcade cabinet running retro-pie and a custom designed arcade game, which can be played on the machine</p>
-                        <div class="project-tags">
-                            <span class="tag">Game Design</span>
-                            <span class="tag">Raspberry Pi</span>
-                            <span class="tag">Woodworking</span>
-                            <span class="tag">Wiring Schematics and Design</span>
-                        </div>
-                    </div>
-                    <a href="sites/arcade.html" class="btn"  style="margin-bottom: 1rem; margin-left: 1rem; margin-top: 4.25rem;">View Project</a>
-                </div>
-
-                <!-- Hardware Project 2 -->
-                <div class="project-card">
-                    <img src="/Images/Battery/batterybankpic.png" alt="Hardware Project 2" class="project-img">
-                    <div class="project-content">
-                        <h3>Recycled Vape Battery Cell Power Bank</h3>
-                        <p>Custom designed and printed Power Bank (30,000 mAh), constructed from 35 recycled 1000mAh Vape "18350" cells and 2 custom soldered PCBs.</p>
-                        <div class="project-tags">
-                            <span class="tag">Recycling</span>
-                            <span class="tag">Soldering</span>
-                            <span class="tag">Wiring</span>
-                            <span class="tag">Battery Technology</span>
-                            <span class="tag">3D Modelling and Printing</span>
-                            <span class="tag">PCB Microsoldering and Design</span>
-                        </div>
-                      
-                    </div>
-                    <a href="sites/battery.html" class="btn"  style="margin-bottom: 1rem; margin-left: 1rem; margin-top:.5rem" >View Project</a>
-                </div>
-
-                <!-- Hardware Project 3 -->
-                <div class="project-card">
-                    <img src="/Images/Vex/Robot.png" alt="Hardware Project 3" class="project-img">
-                    <div class="project-content">
-                        <h3>Vex Tower Takeover</h3>
-                        <p>Led a VEX Robotics team that secured 1st place in the qualifying rounds and finished 6th overall at the BC VEX Robotics Provincials acting as a designer, builder, and the team's primary coder.</p>
-                        <div class="project-tags">
-                            <span class="tag">C++</span>
-                            <span class="tag">Simple C</span>
-                            <span class="tag">Robot Coding</span>
-                            <span class="tag">Mechanical Robot Design</span>
-                            <span class="tag">Autonomous Code</span>
-                        </div>
-                    </div>
-                    <a href="sites/Vex.html" class="btn" style="margin-bottom: 1rem; margin-left: 1rem; margin-top: 3rem">View Project</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="text-center">
-            <h2>Get In Touch</h2>
-            <p>Interested in collaborating or have questions about my work? Feel free to reach out!</p>
-            <p>Email: blainpolishak123@gmail.com</p>
-
-            <div class="social-links">
-                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Blain Polishak. All rights reserved.</p>
+        <div>
+          <h3>Papers and publications</h3>
+          <ul class="exp-list">
+            <li>
+              <strong>Behavioural Biometric Identification Using MIDI Keyboard Performance Signatures</strong>
+              <span class="muted">Published on Zenodo</span>
+              <p><a href="https://www.doi.org/10.5281/zenodo.21863356" target="_blank" rel="noopener">DOI: 10.5281/zenodo.21863356</a></p>
+            </li>
+            <li>
+              <strong>Algal Bloom Detection and Water Monitoring Using IoT Connectivity</strong>
+              <span class="muted">Published on Zenodo, submitted for publication</span>
+              <p><a href="#" target="_blank" rel="noopener">DOI: </a></p>
+            </li>
+          </ul>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <script>
-        // Mobile menu toggle
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
+    <section id="featured">
+      <h2>Featured projects</h2>
+      <p class="muted">Recent projects with full code, diagrams and documentation on GitHub.</p>
+      <div class="featured-list">
+          <article class="featured">
+            <div class="featured-media" data-fit="height"><img src="Images/MIDI/FingerPianoPosterImage.png" alt="MIDI Behavioural Biometrics" loading="lazy"></div>
+            <div class="featured-body">
+              <h3>Identifying Musicians by How They Play: MIDI Behavioural Biometrics</h3>
+              <p>A machine learning system which leverages MIDI data to identify musicians based on freestyle piano performance. This system confidently identified the correct musician from a known performer dataset when analyzing freestyle play in all tested scenarios.</p>
+              <div class="project-tags">
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Python</span>
+              <span class="tag">scikit-learn</span>
+              <span class="tag">Research</span>
+              </div>
+              <div class="card-actions">
+                <a class="btn" href="sites/midiBiometrics.html">View project</a>
+                <a class="btn-paper" href="https://www.doi.org/10.5281/zenodo.21863356" target="_blank" rel="noopener">View academic paper (DOI)</a>
+                <a class="btn-outline" href="https://github.com/blainp/Behavioral-Biometric-Identification-Using-MIDI-Keyboard-Performance-Signatures" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a>
+              </div>
+            </div>
+          </article>
+          <article class="featured">
+            <div class="featured-media" data-fit="contain"><img src="https://github.com/user-attachments/assets/32d2aa59-d374-4e87-b092-e173afab4def" alt="IoT Algal Bloom Detection System" loading="lazy"></div>
+            <div class="featured-body">
+              <h3>IoT Algal Bloom Detection System</h3>
+              <p>A low-cost autonomous water monitoring station designed to be installed in local freshwater lakes, periodically pulling water samples and utilizing a local sensor array to predict the risk of harmful algal blooms with random forest and gradient boosting models.</p>
+              <div class="project-tags">
+              <span class="tag">IoT</span>
+              <span class="tag">Sensors</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Python</span>
+              </div>
+              <div class="card-actions">
+                <a class="btn" href="sites/algalBloom.html">View project</a>
+                <a class="btn-paper" href="https://github.com/blainp/IOT-Algal-Bloom-Detection-and-Prevention-System/blob/main/Documentation/Algal-Bloom-Detection-Technical-Report-4170.pdf" target="_blank" rel="noopener">View academic paper (DOI)</a>
+                <a class="btn-outline" href="https://github.com/blainp/IOT-Algal-Bloom-Detection-and-Prevention-System" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a>
+              </div>
+            </div>
+          </article>
+          <article class="featured">
+            <div class="featured-media"><img src="Images/Arm/ArmMainPic.png" alt="3D-Printed Robotic Arm with Twin Controller" loading="lazy"></div>
+            <div class="featured-body">
+              <h3>3D-Printed Robotic Arm with Twin Controller</h3>
+              <p>A 1-meter, fully 3D-printed 5-axis arm with custom planetary gearboxes, controlled by moving a 1:5 scale potentiometer replica of itself.</p>
+              <div class="project-tags">
+              <span class="tag">Fusion 360</span>
+              <span class="tag">3D Printing</span>
+              <span class="tag">Arduino</span>
+              <span class="tag">Python</span>
+              <span class="tag">Stepper Control</span>
+              </div>
+              <div class="card-actions">
+                <a class="btn" href="sites/robotArm.html">View project</a>
+                <a class="btn-outline" href="https://github.com/blainp/5-Axis-Robotic-Arm-and-1-to-5-Scale-Potentiometer-Twin-Controller" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a>
+              </div>
+            </div>
+          </article>
+          <article class="featured">
+            <div class="featured-media" data-lift="0.1"><img src="Images/Spiderman/climbing hard.png" alt="Vacuum Pump Wall Climbing Suit" loading="lazy"></div>
+            <div class="featured-body">
+              <h3>Vacuum Pump Wall Climbing Suit</h3>
+              <p>A wearable four-pad vacuum system for climbing flat walls, with diagonal pad release and real-time pressure monitoring that signals when it's safe to move.</p>
+              <div class="project-tags">
+              <span class="tag">Embedded C</span>
+              <span class="tag">Pneumatics</span>
+              <span class="tag">Pressure Sensing</span>
+              <span class="tag">Wearable Design</span>
+              </div>
+              <div class="card-actions">
+                <a class="btn" href="sites/spiderman.html">View project</a>
+                <a class="btn-outline" href="https://github.com/blainp/Vacuum-Suit-for-Vertical-Surface-Scaling" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a>
+              </div>
+            </div>
+          </article>
+          <article class="featured">
+            <div class="featured-media" data-fit="contain" data-zoom="1.1"><img src="Images/tracker/tracker.png" alt="Wearable Separation Alert Device" loading="lazy"></div>
+            <div class="featured-body">
+              <h3>Wearable Separation Alert Device</h3>
+              <p>A hidden ESP32-C3 wearable that alerts emergency contacts if the wearer's phone is forcibly taken, running 18+ hours on a recycled battery.</p>
+              <div class="project-tags">
+              <span class="tag">ESP32-C3</span>
+              <span class="tag">Low-Power Design</span>
+              <span class="tag">iOS Shortcuts</span>
+              <span class="tag">Safety Device</span>
+              </div>
+              <div class="card-actions">
+                <a class="btn" href="sites/tracker.html">View project</a>
+                <a class="btn-outline" href="https://github.com/blainp/Integrated-ESP32-Wearable-for-Automated-Distress-Separation-Alerts" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a>
+              </div>
+            </div>
+          </article>
+      </div>
+    </section>
 
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+    <section id="software">
+      <h2>Software projects</h2>
+      <div class="project-grid">
+          <article class="project-card">
+            <img src="Images/MIDI/FingerPianoPosterImage.png" alt="MIDI Behavioural Biometrics" class="project-img" loading="lazy">
+            <div class="project-content">
+              <h3>Identifying Musicians by How They Play: MIDI Behavioural Biometrics</h3>
+              <p>A machine learning system that identifies a keyboard player from MIDI timing, velocity, articulation and pitch movement alone. All three models identified the correct player in all 7 unseen performances.</p>
+              <div class="project-tags">
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Python</span>
+              <span class="tag">scikit-learn</span>
+              <span class="tag">Research</span>
+              </div>
+            </div>
+            <a href="sites/midiBiometrics.html" class="btn">View project</a>
+          </article>
+          <article class="project-card">
+            <img src="Images/Mobile App/Aura/PosterImage.png" alt="Aura Android app sign-in screen" class="project-img" style="object-fit: contain; padding: 0.6rem;" loading="lazy">
+            <div class="project-content">
+              <h3>Aura: Android Dating App with Firebase Backend</h3>
+              <p>A native Java Android Dating app with Firebase authentication, Realtime Database and image storage, location-aware preference matching, mutual-match detection and chat.</p>
+              <div class="project-tags">
+              <span class="tag">Java</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">Android Studio</span>
+              <span class="tag">Location Services</span>
+              </div>
+            </div>
+            <a href="sites/android.html" class="btn">View project</a>
+          </article>
+          <article class="project-card">
+            <div style="overflow: hidden; height: 200px; background: #111316;"><img src="Images/Database/Databasepic.JPG" alt="SQL Inventory Management Database Website" class="project-img" style="object-fit: cover; object-position: center top; transform: scale(1.13); transform-origin: top center;" loading="lazy"></div>
+            <div class="project-content">
+              <h3>SQL Inventory Management Database Website</h3>
+              <p>SQL inventory system for cataloguing and finding personal items, built to keep track of my tools and materials.</p>
+              <div class="project-tags">
+              <span class="tag">PHP</span>
+              <span class="tag">SQL</span>
+              <span class="tag">CSS</span>
+              <span class="tag">AJAX</span>
+              <span class="tag">XAMPP</span>
+              </div>
+            </div>
+            <a href="sites/inventory.html" class="btn">View project</a>
+          </article>
+      </div>
+    </section>
 
-        // Close mobile menu when clicking on links
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
+    <section id="hardware">
+      <h2>Electronics projects</h2>
+      <div class="project-grid">
+          <article class="project-card">
+            <img src="https://github.com/user-attachments/assets/32d2aa59-d374-4e87-b092-e173afab4def" alt="IoT Algal Bloom Detection System" class="project-img" loading="lazy">
+            <div class="project-content">
+              <h3>IoT Algal Bloom Detection System</h3>
+              <p>A low-cost water monitoring station that samples lake water and predicts harmful algal bloom risk with random forest and gradient boosting models.</p>
+              <div class="project-tags">
+              <span class="tag">IoT</span>
+              <span class="tag">Sensors</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Python</span>
+              </div>
+            </div>
+            <a href="sites/algalBloom.html" class="btn">View project</a>
+          </article>
+          <article class="project-card">
+            <img src="Images/Arm/ArmMainPic.png" alt="3D-Printed Robotic Arm with Twin Controller" class="project-img" loading="lazy">
+            <div class="project-content">
+              <h3>3D-Printed Robotic Arm with Twin Controller</h3>
+              <p>A 1-meter, fully 3D-printed 5-axis arm with custom planetary gearboxes, controlled by moving a 1:5 scale potentiometer replica of itself.</p>
+              <div class="project-tags">
+              <span class="tag">Fusion 360</span>
+              <span class="tag">3D Printing</span>
+              <span class="tag">Arduino</span>
+              <span class="tag">Python</span>
+              <span class="tag">Stepper Control</span>
+              </div>
+            </div>
+            <a href="sites/robotArm.html" class="btn">View project</a>
+          </article>
+          <article class="project-card">
+            <img src="Images/Spiderman/climbing hard.png" alt="Vacuum Pump Wall Climbing Suit" class="project-img" loading="lazy">
+            <div class="project-content">
+              <h3>Vacuum Pump Wall Climbing Suit</h3>
+              <p>A wearable four-pad vacuum system for climbing flat walls, with diagonal pad release and real-time pressure monitoring that signals when it's safe to move.</p>
+              <div class="project-tags">
+              <span class="tag">Embedded C</span>
+              <span class="tag">Pneumatics</span>
+              <span class="tag">Pressure Sensing</span>
+              <span class="tag">Wearable Design</span>
+              </div>
+            </div>
+            <a href="sites/spiderman.html" class="btn">View project</a>
+          </article>
+          <article class="project-card">
+            <img src="Images/tracker/tracker.png" alt="Wearable Separation Alert Device" class="project-img" loading="lazy">
+            <div class="project-content">
+              <h3>Wearable Separation Alert Device</h3>
+              <p>A hidden ESP32-C3 wearable that alerts emergency contacts if the wearer's phone is forcibly taken, running 18+ hours on a recycled battery.</p>
+              <div class="project-tags">
+              <span class="tag">ESP32-C3</span>
+              <span class="tag">Low-Power Design</span>
+              <span class="tag">iOS Shortcuts</span>
+              <span class="tag">Safety Device</span>
+              </div>
+            </div>
+            <a href="sites/tracker.html" class="btn">View project</a>
+          </article>
+          <article class="project-card">
+            <img src="Images/Farnsworth/fusor.png" alt="Farnsworth Fusor Reactor" class="project-img" loading="lazy">
+            <div class="project-content">
+              <h3>Farnsworth Fusor Reactor</h3>
+              <p>Demo fusion reactor with a custom high-voltage transformer and rectifier circuit that can sustain low levels of nuclear fusion.</p>
+              <div class="project-tags">
+              <span class="tag">HV Circuitry</span>
+              <span class="tag">Soldering</span>
+              <span class="tag">3D Modelling and Printing</span>
+              <span class="tag">Vacuum Chamber Design</span>
+              </div>
+            </div>
+            <a href="sites/farnsworth.html" class="btn">View project</a>
+          </article>
+          <article class="project-card">
+            <img src="Images/SensorShirt/shirt.png" alt="Sensory Amplification Shirt for the Visually Impaired" class="project-img" loading="lazy">
+            <div class="project-content">
+              <h3>Sensory Amplification Shirt for the Visually Impaired</h3>
+              <p>Wearable distance-sensing and haptic feedback device that conveys obstacle proximity and direction to visually impaired users.</p>
+              <div class="project-tags">
+              <span class="tag">Embedded C</span>
+              <span class="tag">Wearable Technology Design</span>
+              <span class="tag">3D Modelling and Printing</span>
+              <span class="tag">Microsoldering</span>
+              </div>
+            </div>
+            <a href="sites/sensorShirt.html" class="btn">View project</a>
+          </article>
+          <article class="project-card">
+            <img src="Images/Arcade/arcade.png" alt="Custom Arcade Machine and Arcade Game" class="project-img" loading="lazy">
+            <div class="project-content">
+              <h3>Custom Arcade Machine and Arcade Game</h3>
+              <p>Custom-built arcade cabinet running RetroPie, plus an original arcade game designed to be played on it.</p>
+              <div class="project-tags">
+              <span class="tag">Game Design</span>
+              <span class="tag">Raspberry Pi</span>
+              <span class="tag">Woodworking</span>
+              <span class="tag">Wiring Schematics and Design</span>
+              </div>
+            </div>
+            <a href="sites/arcade.html" class="btn">View project</a>
+          </article>
+          <article class="project-card">
+            <img src="Images/Battery/batterybankpic.png" alt="Recycled Vape Battery Cell Power Bank" class="project-img" loading="lazy">
+            <div class="project-content">
+              <h3>Recycled Vape Battery Cell Power Bank</h3>
+              <p>Custom designed and printed 30,000&nbsp;mAh power bank built from 35 recycled 1000&nbsp;mAh vape 18350 cells and 2 custom soldered PCBs.</p>
+              <div class="project-tags">
+              <span class="tag">Recycling</span>
+              <span class="tag">Soldering</span>
+              <span class="tag">Battery Technology</span>
+              <span class="tag">3D Modelling and Printing</span>
+              <span class="tag">PCB Microsoldering and Design</span>
+              </div>
+            </div>
+            <a href="sites/battery.html" class="btn">View project</a>
+          </article>
+          <article class="project-card">
+            <img src="Images/Vex/Robot.png" alt="VEX Tower Takeover" class="project-img" loading="lazy">
+            <div class="project-content">
+              <h3>VEX Tower Takeover</h3>
+              <p>Led a VEX Robotics team as designer, builder and primary coder, placing 1st in qualifying rounds and 6th overall at BC Provincials.</p>
+              <div class="project-tags">
+              <span class="tag">C++</span>
+              <span class="tag">Robot Coding</span>
+              <span class="tag">Mechanical Robot Design</span>
+              <span class="tag">Autonomous Code</span>
+              </div>
+            </div>
+            <a href="sites/Vex.html" class="btn">View project</a>
+          </article>
+      </div>
+    </section>
+
+    <section id="contact" class="text-center">
+      <h2>Get in touch</h2>
+      <p>Interested in collaborating or have questions about my work? Feel free to reach out.</p>
+      <div class="contact-links">
+        <a class="btn" href="mailto:blainpolishak123@gmail.com">blainpolishak123@gmail.com</a>
+        <a class="btn-outline" href="https://github.com/blainp" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> github.com/blainp</a>
+        <!-- Add your LinkedIn here:
+        <a class="btn-outline" href="https://www.linkedin.com/in/YOUR-PROFILE" target="_blank" rel="noopener">LinkedIn</a> -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Blain Polishak</p>
+    </div>
+  </footer>
+
+  <script>
+    // Featured images (unless data-fit is set; "contain" fits inside, "height" matches the box height): scale halfway between "contain" (black bars) and "cover" (crop), biased toward the top
+    (() => {
+      const boxes = document.querySelectorAll('.featured-media');
+      const fit = box => {
+        const img = box.querySelector('img');
+        if (!img.naturalWidth) return;
+        const { clientWidth: w, clientHeight: h } = box;
+        const rw = w / img.naturalWidth, rh = h / img.naturalHeight;
+        const k = box.dataset.fit === 'height' ? rh : box.dataset.fit === 'contain' ? Math.min(rw, rh) * (+box.dataset.zoom || 1) : (Math.min(rw, rh) + Math.max(rw, rh)) / 2;
+        img.style.width = img.naturalWidth * k + 'px';
+        img.style.height = img.naturalHeight * k + 'px';
+        // Overflow is trimmed 30% from the top / 70% from the bottom; a shorter image is centred
+        const oh = img.naturalHeight * k - h;
+        img.style.top = (oh > 0 ? -oh * 0.3 : -oh / 2) - h * (+box.dataset.lift || 0) + 'px';
+      };
+      const ro = new ResizeObserver(entries => entries.forEach(e => fit(e.target)));
+      boxes.forEach(box => {
+        const img = box.querySelector('img');
+        img.loading = 'eager';
+        img.complete ? fit(box) : img.addEventListener('load', () => fit(box));
+        ro.observe(box);
+      });
+    })();
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('active');
+      menuBtn.setAttribute('aria-expanded', open);
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 </body>
 </html>

@@ -5,47 +5,76 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Custom Arcade Machine | Blain Polishak</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css"/>
   <link rel="icon" href="../Images/blain image temp.png" type="image/x-icon">
 </head>
 <body>
-  <header>
-    <div class="container header-content">
+  <div class="page-top">
+    <div class="page-top-poster" style="background-image: url('../Images/Arcade/arcade.png'); --poster-size: auto 125%; --poster-pos: calc(100% + 90px) 10%" aria-hidden="true"></div>
+    <div class="container">
+      <a class="back-link" href="../index.html#hardware">&larr; All projects</a>
       <h1>Custom Arcade Machine</h1>
+      <p class="summary">A hand-built wooden arcade cabinet running RetroPie on a Raspberry Pi, plus an original top-down zombie shooter designed to be played on it.</p>
     </div>
-  </header>
+  </div>
 
   <main class="container">
     <section>
       <h2>Overview</h2>
-      <p>
-        This project was my first real foray into the world of electronics and programming. For a school project, I decided to build a custom arcade machine using a Raspberry Pi and various components. 
-        I undertook this project for my dad as the Raspberry Pi software called RetroPie allows you to emulate thousands of old retro arcade games which my dad grew up playing and hadn't had an authentic 
-        way to play since his childhood. Additionally, I wanted to design my own simple game which could be played on the cabinet as I wanted to learn more about game development and programming in general.
-      </p>
-      <p>
-        The project started with a wooden arcade cabinet design schematic I found online and the purchasing of the Raspberry Pi, related components, and monitor to be used. I then sourced the wood for the cabinet with my dad. I learned many 
-        woodworking skills throughout building the cabinet, including how to use a table saw, drill press, and jigsaw, router, scroll saw, band saw, and many other standard woodworking tools. I also used a planer and sander in addition to 
-        staining to create a smooth and clean finish for the exterior of the cabinet. I then installed the controls and electronics into the cabinet, installed the Raspberry Pi, connected and configured the controls, and loaded RetroPie onto 
-        the Raspberry Pi.
-      </p>
-      <p>
-        I designed the game on a dual boot of the regular Raspberry Pi OS as a simple top-down zombie shooting game with a points system and leaderboard for most kills before dying. Overall, I achieved everything I had hoped with the project and it is 
-        still in my dad's office today. I still sometimes hear him playing throughout the day while im studying and it's very rewarding knowing I could give him something he enjoys so much.
-      </p>
+      <div class="overview-grid">
+        <div>
+          <p>
+            This project was my first real foray into electronics and programming. For a school project, I decided to build a custom arcade machine around a Raspberry Pi. I built it for my dad, since the RetroPie software
+            can emulate thousands of the retro arcade games he grew up playing and hadn't had an authentic way to play since his childhood. I also wanted to design my own simple game for the cabinet, to learn more about
+            game development and programming in general.
+          </p>
+        </div>
+        <aside class="facts">
+          <h3>Project facts</h3>
+          <dl>
+            <div><dt>Type</dt><dd>School project, built as a gift for my dad</dd></div>
+            <div><dt>Hardware</dt><dd>Raspberry Pi, arcade buttons and joysticks, monitor, custom wooden cabinet</dd></div>
+            <div><dt>Software</dt><dd>RetroPie emulation, plus a dual-boot Raspberry Pi OS</dd></div>
+            <div><dt>Custom game</dt><dd>Top-down zombie shooter with a kill leaderboard</dd></div>
+            <div><dt>Tools</dt><dd>Table saw, router, jigsaw, band saw, drill press, planer, stain finish</dd></div>
+          </dl>
+        </aside>
+      </div>
     </section>
 
     <section>
-      <h2>Gallery</h2>
-      <div class="projectSite-grid">
-        <img src="../Images/Arcade/4832.jpg" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/Arcade/3604.jpg" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/Arcade/4710.jpg" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/Arcade/3806.jpg" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/Arcade/4726.jpg" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/Arcade/2295.jpg" class="projectSite-img" alt="Project image 1">
-
+      <h2>Building the cabinet</h2>
+      <p>
+        The project started with a wooden arcade cabinet plan I found online, and buying the Raspberry Pi, related components and monitor. I then sourced the wood for the cabinet with my dad. Building it taught me a lot of
+        woodworking, including how to use a table saw, drill press, jigsaw, router, scroll saw, band saw and many other standard tools. I finished the exterior with a planer, sander and stain for a smooth, clean look.
+      </p>
+      <div class="media-row">
+        <figure><img src="../Images/Arcade/3806.jpg" alt="Marking out cabinet parts on the workbench"></figure>
+        <figure><img src="../Images/Arcade/4726.jpg" alt="The stained cabinet front with the arcade buttons fitted"></figure>
       </div>
+      <p>
+        Next, I installed the controls and electronics in the cabinet, mounted the Raspberry Pi and monitor, wired up and configured the buttons and joysticks, and loaded RetroPie onto the Pi.
+      </p>
+      <div class="media-row">
+        <figure><img src="../Images/Arcade/3604.jpg" alt="Fitting the monitor into the cabinet"></figure>
+        <figure><img src="../Images/Arcade/4710.jpg" alt="Wiring the buttons and joysticks behind the control panel"></figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>The game</h2>
+      <p>
+        I built my own game on a dual boot of the regular Raspberry Pi OS: a simple top-down zombie shooter with a points system and a leaderboard for the most kills before dying.
+      </p>
+      <div class="media-row">
+        <figure><img src="../Images/Arcade/2295.jpg" alt="Designing the zombie shooter game's levels"></figure>
+        <figure><img src="../Images/Arcade/4832.jpg" alt="The finished arcade cabinet lit up and running the game"></figure>
+      </div>
+      <p>
+        Overall, I achieved everything I'd hoped to with this project, and the cabinet is still in my dad's office today. I still sometimes hear him playing throughout the day while I'm studying, and it's very rewarding
+        knowing I could give him something he enjoys so much.
+      </p>
     </section>
 
 
@@ -61,14 +90,15 @@
     </section>
 
     <div class="text-center" style="margin-top: 2rem;">
-      <a href="../index.html#software" class="btn1">← Back to Projects</a>
+      <a href="../index.html#hardware" class="btn1">← Back to Projects</a>
     </div>
   </main>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Blain Polishak. All rights reserved.</p>
+      <p>&copy; 2026 Blain Polishak. All rights reserved.</p>
     </div>
   </footer>
+  <script src="../media-rows.js"></script>
 </body>
 </html>

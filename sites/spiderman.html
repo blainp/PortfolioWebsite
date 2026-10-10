@@ -1,130 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vacuum Pump Wall Climbing Suit | Blain Polishak</title>
-  <link rel="stylesheet" href="../styles.css"/>
-  <link rel="icon" href="../Images/blain image temp.png" type="image/x-icon">
+  <meta name="description" content="A wearable, battery-powered vacuum system for climbing flat vertical walls, with four suction pads, diagonal release controls, and real-time pressure monitoring that tells the climber when it's safe to move.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="../Images/blain image temp.png">
 </head>
 <body>
-  <header>
-    <div class="container header-content">
+  <div class="page-top">
+    <div class="page-top-poster" style="background-image: url('../Images/Spiderman/climbing hard.png'); --poster-size: auto 130%; --poster-pos: 80% 40%" aria-hidden="true"></div>
+    <div class="container">
+      <a class="back-link" href="../index.html">&larr; All projects</a>
       <h1>Vacuum Pump Wall Climbing Suit</h1>
+      <p class="summary">A wearable, battery-powered vacuum system for climbing flat vertical walls, with four suction pads, diagonal release controls, and real-time pressure monitoring that tells the climber when it's safe to move.</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://github.com/blainp/Vacuum-Suit-for-Vertical-Surface-Scaling" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> View full project on GitHub</a>
+      </div>
     </div>
-  </header>
+  </div>
 
   <main class="container">
     <section>
       <h2>Overview</h2>
-      <p>
-       My most complicated project to date is my fully custom, vacuum-powered, wearable system for flat vertical wall climbing. I have been working on it on and off for 2.5 years, having completed 
-       the first successful test of the full suit system in August 2024. Initially, I implemented this system as 2 separate all-in-one vacuum pads, one for each hand, with a rope and foot hold for each side.
-       The problem with my first design was that it relied on only 2 points of contact, meaning a sudden failure of one pad could mean falling off the wall, and that you had to move the leg and hand of each side
-       at the same time, which was very unnatural. 
-      </p>
-      <p>
-       My second iteration of the project moved the electronics to a backpack-style mount, with 4 smaller vacuum pads, one for each appendage. This not only provided more redundancy, but also increased the total
-       suction force overall from the suit as I added 2 additional vaccuum pump motors. I also implemented an Arduino-based pressure monitoring system with indicator LEDs on my arms which inform me when a negative
-       pressure capable of sustaining my weight has been reached (generally about -9psi)
-       </p>
+      <div class="overview-grid">
+        <div class="prose">
+          <p>The first version used two all-in-one vacuum pads, one per hand, with foot loops. Losing suction on either pad meant coming off the wall, and climbing meant moving a hand and foot on the same side together, which was exhausting.</p>
+          <p>The second version moves the electronics into a backpack frame and gives each limb its own pad and pump. Releasing an arm pad with the button in its handgrip also releases the diagonally opposite leg pad, so the climber moves in a natural cross-crawl while the other diagonal pair holds the wall.</p>
+          <p>Pressure sensors on every line feed an Arduino that lights a green LED on the forearm only when both pads of a diagonal pair are holding past the safe threshold, so the climber never has to guess whether it's safe to let go.</p>
+        </div>
+      <aside class="facts">
+        <h3>Project facts</h3>
+        <dl>
+          <div><dt>Type</dt><dd>Personal hardware project, about 2.5 years of development</dd></div>
+          <div><dt>Power</dt><dd>2&times; 5000&nbsp;mAh 12&nbsp;V LiPo batteries</dd></div>
+          <div><dt>Vacuum</dt><dd>4&times; 12&nbsp;V pumps rated to &minus;85&nbsp;kPa, one per pad</dd></div>
+          <div><dt>Safety threshold</dt><dd>&minus;9 psi on both pads of a diagonal pair</dd></div>
+          <div><dt>Control</dt><dd>Arduino with pressure sensors, solenoid valves and LED indicators</dd></div>
+        </dl>
+      </aside>
+      </div>
+    </section>
 
-       <p>
-        The overall design is relatively simple. To start, there are 2 5000mAh high amperage 12V lipo batteries attached at the top of the backpack mount. These batteries power the four 12V -84KPA vacuum pump motors, 
-        each of which connects to their own vacuum pad. In the vacuum system, between each motor and pad is a solenoid and a vacuum pressure sensor. The normally-closed solenoid is opened by a button placed in the 
-        hand grip of each arm pad, which allows the vacuum to be released from said arm pad, in addition to releasing leg pad of the opposite side, leading to a natural climbing movement. The vacuum pressure sensors
-        feed their data to an arduino which was programmed to light up either a red LED (No vacuum <=-9 PSI) or a green LED (Adequate Vacuum >-9 PSI) on the arm pads of each side. These LEDs are only lit up if both the connected arm and leg 
-        (example left arm and right leg), have sufficient suction, meaning the user can move the opposite arm and leg (right arm and left leg) without falling off the wall. This arduino is powered by a buck converter which steps the 
-        12V from the battery down to 5v. 
-       </p>
+    <div class="video">
+      <iframe src="https://www.youtube-nocookie.com/embed/KHBrrZLr4q0" title="Shortened test video" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="media-row wide">
+      <figure>
+        <img src="https://github.com/user-attachments/assets/63893b26-d502-406d-bf77-20e505984326" alt="Climbing suit components and safety indicators" loading="lazy">
+      </figure>
+    </div>
 
-       <p>
-        The arm and leg pads are made from painted wood plank pieces which have been partially hollowed and fitted with a standard rubber door gasket from Home Depot followed by a ring of high density insulation
-        foam, both of which have been sealed with silicone to create a solid seal with a good coefficient of friction against the wall. The arm pads are mounted to a pair of wrist guards allowing them to be strapped 
-        to the arms and have metal hand grips on their ends which contain the solenoid control buttons. The leg pads are attached to the mounting velcro system from old hockey pads, in addition to foot straps which
-        bear the majority of the weight of the user. All 4 pads have a vacuum tube attachment which are sealed with silicone as well. Additionally, a recent addition to the leg pads are more padding behind the shins 
-        which push the pads further out and make them easier to attach to the wall.
-       </p>
+    <section>
+      <h2>Design evolution</h2>
+      <div class="prose"><p>Version 1 relied on two pads and manual foot loops, creating a single point of failure.</p></div>
+    <div class="video">
+      <iframe src="https://www.youtube-nocookie.com/embed/qCL62ihRkEw" title="Version 1 test video" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="media-row">
+      <figure>
+        <img src="https://github.com/user-attachments/assets/deb7f468-12f8-4b31-bcef-91a5b945b86f" alt="First version of the climbing suit" loading="lazy">
+      </figure>
+      <figure>
+        <img src="https://github.com/user-attachments/assets/483c195e-9417-4fa7-9899-63320096bbad" alt="First version of the climbing suit in use" loading="lazy">
+      </figure>
+    </div>
+    </section>
 
-       <p>
-        The user can power the system up with switches attached to front arm mounts which attach to the arm pads via velcro and which also harbor the indicator LEDs. The wiring and vacuum tubing is run through tube shielding to prevent
-        snagging and damage to the wires, which is kept in place by clips along the arms and shoulders of the shirt. The different components are mounted to the backpack with custom designed and 3D printed mounts to ensure they are 
-        held securely. All wiring is connected via quick connectors allowing for easy and quick disconnection and connection of the systems when taking on and off the suit.
-       </p>
+    <section>
+      <h2>Electronics and safety system</h2>
+      <div class="prose">
+        <p>The &minus;9 psi threshold comes from a 170&nbsp;lb climber, a 2&times; safety factor and a conservative 0.5 friction coefficient. Spread over one arm pad and one leg pad (96&nbsp;in&sup2;), that needs about 7.1 psi, which was rounded up to allow for leaks and imperfect seals.</p>
+      </div>
+    <div class="media-row wide">
+      <figure>
+        <img src="https://github.com/user-attachments/assets/0e5f03dd-c619-4739-a471-513085bc9557" alt="Wiring diagram of the climbing suit" loading="lazy">
+      </figure>
+    </div>
+    </section>
+
+    <section>
+      <h2>Pad construction</h2>
+      <div class="prose">
+        <p>Each pad is a partially hollowed wooden plank sealed with a rubber door gasket and a ring of high-density foam, encapsulated in silicone for an airtight, high-friction seal. Arm pads mount to wrist guards with metal handgrips, and leg pads use hockey-pad harnesses with foot straps that carry most of the climber's weight.</p>
+      </div>
+    <div class="media-row wide">
+      <figure>
+        <img src="../Images/Spiderman/climbingpic.JPG" alt="Wall climbing suit photo 1" loading="lazy">
+      </figure>
+    </div>
+    </section>
+
+    <section>
+      <h2>Build timelapse and full test</h2>
+    <div class="video">
+      <iframe src="https://www.youtube-nocookie.com/embed/LduNefReZHM" title="Build timelapse" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="video">
+      <iframe src="https://www.youtube-nocookie.com/embed/eWJluZnBhK0" title="Full test video" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
     </section>
 
     <section>
       <h2>Gallery</h2>
-      <div class="projectSite-grid">
-        <img src="../Images/Spiderman/climbingpic.JPG" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/Spiderman/IMG_3437.jpg" class="projectSite-img" alt="Project image 3">
-        <img src="../Images/Spiderman/20220815_145438.jpg" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/Spiderman/IMG_3428.jpg " class="projectSite-img" alt="Project image 2">
-        <img src="../Images/Spiderman/IMG_3450.jpg" class="projectSite-img" alt="Project image 3">
-        <img src="../Images/Spiderman/Climbing pic 2.JPG" class="projectSite-img" alt="Project image 2">
+      <div class="media-row">
+        <figure><img src="https://github.com/user-attachments/assets/c368565b-4fd9-4188-afcc-bd5474aa620c" alt="Close-up of vacuum pad construction" loading="lazy"></figure>
+        <figure><img src="../Images/Spiderman/20220815_145438.jpg" alt="Wall climbing suit photo 3" loading="lazy"></figure>
+        <figure><img src="../Images/Spiderman/IMG_3437.jpg" alt="Wall climbing suit photo 2" loading="lazy"></figure>
+      </div>
+      <div class="media-row">
+        <figure><img src="../Images/Spiderman/IMG_3450.jpg" alt="Wall climbing suit photo 5" loading="lazy"></figure>
+        <figure><img src="../Images/Spiderman/IMG_3428.jpg" alt="Wall climbing suit photo 4" loading="lazy"></figure>
+        <figure><img src="../Images/Spiderman/Climbing pic 2.JPG" alt="Wall climbing suit photo 6" loading="lazy"></figure>
       </div>
     </section>
 
-    
     <section>
-      <h2>Build Timelapse</h2>
-      <div class="video-wrapper">
-      <iframe 
-          style="border: none;" 
-          src="https://www.youtube.com/embed/LduNefReZHM?si=EaZVv2jUEQ3l0pnP" 
-          title="YouTube video player" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowfullscreen>
-      </iframe>
-      </div>
-      <h2>Shortened Test Video</h2>
-      <div class="video-wrapper">
-      <iframe 
-          style="border: none;" 
-          src="https://www.youtube.com/embed/KHBrrZLr4q0?si=K0FT7_bun3wRtZyh" 
-          title="YouTube video player" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowfullscreen>
-      </iframe>
-      </div>
-      <h2>Full Test Video</h2>
-      <div class="video-wrapper">
-      <iframe 
-        style="border: none;" 
-        src="https://www.youtube.com/embed/eWJluZnBhK0?si=q8HyjuMzKZECJduy" 
-        title="YouTube video player" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen>
-      </iframe>
-    </div>
-    </section>
-
-
-    <section>
-      <h2>Technologies Used</h2>
+      <h2>Skills and technologies</h2>
       <div class="project-tags">
         <span class="tag">Embedded C</span>
+        <span class="tag">Arduino</span>
+        <span class="tag">Pneumatics</span>
         <span class="tag">Vacuum Pad Design</span>
-        <span class="tag">3D Modelling and Printing</span>
+        <span class="tag">Pressure Sensing</span>
         <span class="tag">Wearable Technology Design</span>
-        <span class="tag">Vacuum Sensing and Motor Circuitry</span>
+        <span class="tag">3D Modelling and Printing</span>
         <span class="tag">Soldering</span>
-        <!-- Add relevant tags per project -->
       </div>
     </section>
 
-    <div class="text-center" style="margin-top: 2rem;">
-      <a href="../index.html#software" class="btn1">← Back to Projects</a>
+    <div class="repo-cta">
+      <p>Source code, wiring diagrams, 3D models and full documentation are in the GitHub repository.</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://github.com/blainp/Vacuum-Suit-for-Vertical-Surface-Scaling" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> View full project on GitHub</a>
+        <a class="btn-outline" href="../index.html">Back to all projects</a>
+      </div>
     </div>
   </main>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Blain Polishak. All rights reserved.</p>
+      <p>&copy; 2026 Blain Polishak</p>
     </div>
   </footer>
+  <script src="../media-rows.js"></script>
 </body>
 </html>

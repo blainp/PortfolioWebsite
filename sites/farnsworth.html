@@ -4,40 +4,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Farnsworth Fusor | Blain Polishak</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css"/>
   <link rel="icon" href="../Images/blain image temp.png" type="image/x-icon">
 </head>
 <body>
-  <header>
-    <div class="container header-content">
+  <div class="page-top">
+    <div class="page-top-poster" style="background-image: url('../Images/Farnsworth/fusor.png'); --poster-pos: calc(50% + 150px) 55%" aria-hidden="true"></div>
+    <div class="container">
+      <a class="back-link" href="../index.html#hardware">&larr; All projects</a>
       <h1>Farnsworth Fusor</h1>
+      <p class="summary">A working demonstration fusion reactor, with a custom high-voltage transformer and rectifier circuit and a vacuum chamber that sustains a stable plasma.</p>
     </div>
-  </header>
+  </div>
 
   <main class="container">
     <section>
       <h2>Overview</h2>
+      <div class="overview-grid">
+        <div>
+          <p>
+            As a personal engineering project, I built a working demonstration fusion reactor, a Farnsworth fusor, using a custom-built high-voltage transformer and rectifier circuit to generate and sustain a stable plasma field.
+          </p>
+        </div>
+        <aside class="facts">
+          <h3>Project facts</h3>
+          <dl>
+            <div><dt>Type</dt><dd>Personal engineering project</dd></div>
+            <div><dt>Power</dt><dd>Custom high-voltage transformer and rectifier circuit</dd></div>
+            <div><dt>Vacuum</dt><dd>Custom chamber holding &minus;15&nbsp;psi</dd></div>
+            <div><dt>Method</dt><dd>Inertial Electrostatic Confinement (IEC)</dd></div>
+            <div><dt>Result</dt><dd>Stable plasma with presumed low-level fusion</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <div class="media-row wide">
+      <figure><img src="../Images/Farnsworth/fusion pic.jpg" alt="Purple plasma glowing around the inner grid of the fusor"></figure>
+    </div>
+
+    <section>
+      <h2>The build</h2>
       <p>
-        As a personal engineering project, I decided to construct a functional demo fusion reactor using a custom-built high-voltage transformer 
-        and rectifier circuit to generate and sustain a stable plasma field. I engineered and built a vacuum chamber 
-        system which could sustain -15 psi to create the optimal environment for Inertial Electrostatic Confinement (IEC), enabling 
-        controlled fusion conditions. I also isolated and shielded the high-voltage components
-        to minimize electrical interference, prevent short-circuiting, and ensure system reliability and operational
-        safety. With this project, I successfully achieved and maintained controlled, low-levels of a presumed nuclear fusion reaction. 
-        However, this fusor likely produces extremely low levels of fusion and is not a practical source of energy, nor does it pose any serious hazard at 
-        the voltage and pressures being used, in addition to the lack of a gaseous fuel such as deuterium or tritium, which would vastly bolster the reaction.
+        I engineered and built a vacuum chamber system that could hold &minus;15&nbsp;psi, creating the low-pressure environment needed for Inertial Electrostatic Confinement (IEC), where a high-voltage grid at the centre of the
+        chamber accelerates ions inward toward each other.
       </p>
+      <p>
+        I also isolated and shielded the high-voltage components to minimize electrical interference, prevent short circuits, and keep the system reliable and safe to operate.
+      </p>
+      <div class="media-row">
+        <figure><img src="../Images/Farnsworth/IMG_4075.jpg" alt="The aluminium vacuum chamber frame during construction"></figure>
+        <figure style="overflow: hidden; border-radius: var(--radius-sm);"><img class="desktop-framing" src="../Images/Farnsworth/fusor.png" alt="The finished fusor from the front" style="transform: translate(18.7%, -12.5%) scale(1.38);"></figure>
+        <figure><img class="desktop-framing" src="../Images/Farnsworth/fusor2.png" alt="The finished fusor from the side, showing the high-voltage connections" style="transform: translate(-4.5%, -1.4%) scale(1.1);"></figure>
+      </div>
     </section>
 
     <section>
-      <h2>Gallery</h2>
-      <div class="projectSite-grid">
-        <img src="../Images/Farnsworth/fusion pic.jpg" class="projectSite-img" alt="Project image 2">
-        <img src="../Images/Farnsworth/fusor.png" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/Farnsworth/fusor2.png" class="projectSite-img" alt="Project image 2">
-        <img src="../Images/Farnsworth/IMG_4075.jpg" class="projectSite-img" alt="Project image 2">
-
-      </div>
+      <h2>Results</h2>
+      <p>
+        With this project, I achieved and maintained a controlled, low-level presumed fusion reaction. That said, this fusor likely produces extremely little fusion and is not a practical energy source. It also poses no serious
+        radiation hazard at the voltages and pressures used, especially without a fusion fuel gas such as deuterium or tritium, which would vastly boost the reaction.
+      </p>
     </section>
 
     <section>
@@ -52,14 +80,15 @@
     </section>
 
     <div class="text-center" style="margin-top: 2rem;">
-      <a href="../index.html#software" class="btn1">← Back to Projects</a>
+      <a href="../index.html#hardware" class="btn1">← Back to Projects</a>
     </div>
   </main>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Blain Polishak. All rights reserved.</p>
+      <p>&copy; 2026 Blain Polishak. All rights reserved.</p>
     </div>
   </footer>
+  <script src="../media-rows.js"></script>
 </body>
 </html>

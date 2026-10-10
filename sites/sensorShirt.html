@@ -5,47 +5,74 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sensory Amplification Suit | Blain Polishak</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css"/>
   <link rel="icon" href="../Images/blain image temp.png" type="image/x-icon">
 </head>
 <body>
-  <header>
-    <div class="container header-content">
+  <div class="page-top">
+    <div class="page-top-poster" style="background-image: url('../Images/SensorShirt/shirt.png'); --poster-size: auto 150%; --poster-pos: 80% 5%" aria-hidden="true"></div>
+    <div class="container">
+      <a class="back-link" href="../index.html#hardware">&larr; All projects</a>
       <h1>Sensory Amplification Suit</h1>
+      <p class="summary">A wearable that helps visually impaired people sense obstacles beyond the reach of a cane, using ultrasonic sensors on a shirt and vibration motors that convey distance and direction.</p>
     </div>
-  </header>
+  </div>
 
   <main class="container">
     <section>
       <h2>Overview</h2>
-      <p>
-        In Grade 11 I had a shower thought about a system which would inform blind individuals about large incoming obstacles that were too far away to be felt by a cane. When COVID started later that year, I decided I would start 
-        engineering this system and would use it as my upcoming Grade 12 capstone project. I worked on it throughout the summer and the following year until my Capstone deadline in December. 
-      </p>
+      <div class="overview-grid">
+        <div>
+          <p>
+            In Grade 11 I had a shower thought about a system that would warn blind people about large incoming obstacles too far away to be felt with a cane. When COVID started later that year, I decided to start
+            engineering it and use it as my upcoming Grade 12 capstone project. I worked on it through the summer and the following school year until my capstone deadline in December.
+          </p>
+        </div>
+        <aside class="facts">
+          <h3>Project facts</h3>
+          <dl>
+            <div><dt>Type</dt><dd>Grade 12 capstone project</dd></div>
+            <div><dt>Purpose</dt><dd>Warn blind users of obstacles beyond the reach of a cane</dd></div>
+            <div><dt>Hardware</dt><dd>Arduino, ultrasonic sensor array, vibration motors, belt-mounted case</dd></div>
+            <div><dt>Mounts</dt><dd>3D-printed, hot-swappable sensor mounts sewn to the shirt</dd></div>
+            <div><dt>Wiring</dt><dd>About 150 hand-run wires</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
 
+    <section>
+      <h2>Prototyping</h2>
       <p>
-        I started the project by buying an Arduino and an array of ultrasonic sensors and vibration motors. I set up these components on a series of breadboards and testing rigs to ensure they were outputting accurate measurements and 
-        that my code was functioning as expected before mounting them to a shirt. I then 3D designed hot swappable mounts for the ultrasonic sensors which I could sew to the shirt, measuring the amount of FOV overlap between the sensors
-        and ensuring they did not interfere with each other. My initial design for the sensors overlooked that the zipties I would use to secure the sensors blocked the sensor pins so I redesigned it to use 2 zip ties which stay out of the way and which had a smaller
-        mounting plate which could be sewn to the shirt. 
+        I started by buying an Arduino along with an array of ultrasonic sensors and vibration motors. I set these up on a series of breadboards and test rigs to make sure they were giving accurate measurements and
+        that my code worked as expected before mounting anything to a shirt.
       </p>
-
+      <div class="media-row">
+        <figure><img src="../Images/SensorShirt/20210108_022131.jpg" alt="Sensors mounted on the shirt with wiring running down to the controller"></figure>
+        <figure><img src="../Images/SensorShirt/shirt.png" alt="The completed sensory amplification shirt"></figure>
+      </div>
       <p>
-        After sewing these sensor mounts to the shirt, I modified an existing case design for the arduino to fit on my belt and ran wiring for the sensors down to the arduino. I used the adhesive that came on the vibration motors to connect
-        them to the shirt as it was strong enough to hold them in place without additional sewing or gluing. When I started testing the complete system, I ran into issues in that the arduino was reading the correct values but the motors were not
-        vibrating correctly. After painfully checking the code many times and every single one of the ~150 wires, I realised that one wire had an unstable connection which I replaced. After fixing this issue, the system worked well but still required some 
-        tuning in sensor reactiveness and vibration strength in order to be as intuitive as possible. I then did a test demonstration which was recorded and is shown below in which I identify the positions of the walls and obstacles around me as I walk throughout my home.
+        Next, I designed hot-swappable 3D-printed mounts for the ultrasonic sensors that could be sewn to the shirt, measuring how much the sensors' fields of view overlapped and making sure they didn't interfere with each other.
+        My first mount design overlooked that the zip ties holding the sensors blocked the sensor pins, so I redesigned it to use two zip ties that stay out of the way, with a smaller mounting plate that was easier to sew on.
       </p>
     </section>
 
     <section>
-      <h2>Gallery</h2>
-      <div class="projectSite-grid">
-        <img src="../Images/SensorShirt/shirt.png" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/SensorShirt/20210108_022131.jpg" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/SensorShirt/IMG_20200312_184430.jpg" class="projectSite-img" alt="Project image 1">
-        <img src="../Images/SensorShirt/IMG_20200318_152622.jpg" class="projectSite-img" alt="Project image 1">
+      <h2>Assembly and testing</h2>
+      <p>
+        After sewing the sensor mounts to the shirt, I modified an existing Arduino case design to clip onto my belt and ran wiring from the sensors down to it. The vibration motors came with adhesive strong enough to hold them
+        to the shirt without any extra sewing or glue.
+      </p>
+      <div class="media-row">
+        <figure><img src="../Images/SensorShirt/IMG_20200318_152622.jpg" alt="Ultrasonic sensors wired up on breadboards for testing"></figure>
+        <figure><img src="../Images/SensorShirt/IMG_20200312_184430.jpg" alt="Planning sensor placement and coverage on a shirt diagram"></figure>
       </div>
+      <p>
+        When I started testing the complete system, the Arduino was reading the correct values but the motors weren't vibrating correctly. After painstakingly checking the code many times and every one of the ~150 wires,
+        I found a single wire with an unstable connection and replaced it. The system then worked well, but still needed tuning of sensor responsiveness and vibration strength to feel as intuitive as possible.
+        Finally, I recorded a demonstration, shown below, in which I identify the positions of walls and obstacles around me as I walk through my home.
+      </p>
     </section>
 
     <section>
@@ -101,14 +128,15 @@
     </section>
 
     <div class="text-center" style="margin-top: 2rem;">
-      <a href="../index.html#software" class="btn1">← Back to Projects</a>
+      <a href="../index.html#hardware" class="btn1">← Back to Projects</a>
     </div>
   </main>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Blain Polishak. All rights reserved.</p>
+      <p>&copy; 2026 Blain Polishak. All rights reserved.</p>
     </div>
   </footer>
+  <script src="../media-rows.js"></script>
 </body>
 </html>

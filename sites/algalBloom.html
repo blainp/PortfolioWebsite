@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IoT Algal Bloom Detection System | Blain Polishak</title>
+  <meta name="description" content="A low-cost, field-deployable water monitoring station that samples lake water, measures it with inexpensive sensors, and uses machine learning to predict harmful algal bloom risk.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="../Images/blain image temp.png">
+</head>
+<body>
+  <div class="page-top">
+    <div class="page-top-poster" style="background-image: url('https://github.com/user-attachments/assets/32d2aa59-d374-4e87-b092-e173afab4def')" aria-hidden="true"></div>
+    <div class="container">
+      <a class="back-link" href="../index.html">&larr; All projects</a>
+      <h1>IoT Algal Bloom Detection System</h1>
+      <p class="summary">A low-cost, field-deployable water monitoring station that samples lake water, measures it with inexpensive sensors, and uses machine learning to predict harmful algal bloom risk.</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://github.com/blainp/IOT-Algal-Bloom-Detection-and-Prevention-System" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> View full project on GitHub</a>
+        <a class="btn-outline" href="https://github.com/blainp/IOT-Algal-Bloom-Detection-and-Prevention-System/blob/main/Documentation/Algal-Bloom-Detection-Technical-Report-4170.pdf" target="_blank" rel="noopener">Read technical report (DOI preprint)</a>
+        <a class="btn-outline" href="https://github.com/blainp/IOT-Algal-Bloom-Detection-and-Prevention-System/blob/main/Documentation/IOT_presentation.pdf" target="_blank" rel="noopener">Presentation slides</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <section>
+      <h2>Overview</h2>
+      <div class="overview-grid">
+        <div class="prose">
+          <p>In recent years, in British Columbia, harmful algal blooms have increasingly threatened local aquatic life, and have made lakes and rivers unsafe for recreation. The root problem, is that monitoring and detecting these algal blooms is both complex and labour-intensive. Lab testing for chlorophyll-a, the standard indicator, is slow and expensive, and there's very little local water-quality data for most bodies of fresh water in BC. The most common method of detection is via satelite imaging, which can only report blooms after they happen. This system estimates bloom risk, and provides fast bloom detection via cheap physical sensors, instead of the complex or delayed analysis of alternatives.</p>
+          <p>An Arduino MKR WiFi 1010 pumps lake water into a separate testing reservoir, keeping the electronics away from the water's surface. There it measures pH, temperature and turbidity, and estimates phosphorus by reading the colour change of a reagent with an RGB sensor, before a solenoid valve drains the reservoir for the next sample. Machine learning models then rate each sample as algae absent, algae may be present, or algae present.</p>
+        </div>
+      <aside class="facts">
+        <h3>Project facts</h3>
+        <dl>
+          <div><dt>Type</dt><dd>Group project with an IEEE technical report paper</dd></div>
+          <div><dt>Controller</dt><dd>Arduino MKR WiFi 1010 with edge logic</dd></div>
+          <div><dt>Sensors</dt><dd>pH, DS18B20 temperature, turbidity, RGB colour sensor for phosphorus</dd></div>
+          <div><dt>Cloud</dt><dd>MQTT to a Docker-hosted ThingsBoard dashboard, with email alerts</dd></div>
+          <div><dt>Result</dt><dd>Random forest at 78% accuracy across all three risk levels</dd></div>
+        </dl>
+      </aside>
+      </div>
+    </section>
+
+    <div class="media-row">
+      <figure>
+        <img src="https://github.com/user-attachments/assets/93eb603f-b4d4-41a7-8a43-496c608952b2" alt="System diagram of the algal bloom monitoring station" loading="lazy">
+      </figure>
+      <figure>
+        <img src="https://github.com/user-attachments/assets/9647b5d3-e0db-49aa-8af9-4785628f9f04" alt="Algal bloom monitoring system output" loading="lazy">
+      </figure>
+    </div>
+
+    <section>
+      <h2>Prototype and cloud dashboard</h2>
+      <div class="prose">
+        <p>Each reading is sent over MQTT to a ThingsBoard server running in Docker. The custom dashboard shows live sensor data and controls the device remotely through RPC calls, and high-risk readings trigger an automatic email alert. MQTT was chosen over a REST API for its low latency, and it let the device send and receive updates almost instantly.</p>
+      </div>
+    <div class="media-row">
+      <figure>
+        <img src="https://github.com/user-attachments/assets/32d2aa59-d374-4e87-b092-e173afab4def" alt="The sensor station from the front" loading="lazy">
+      </figure>
+      <figure>
+        <img src="https://github.com/user-attachments/assets/0319e15f-4df9-43eb-88ad-280d600d6044" alt="The sensor station in operation" loading="lazy">
+      </figure>
+    </div>
+    </section>
+
+    <section>
+      <h2>Machine learning</h2>
+      <div class="prose">
+        <p>The biggest challenge was the data. The available water-quality dataset had no labels marking which samples were blooms, so several approaches were tried. K-means clustering produced clusters that looked plausible but put every test sample into a single cluster, and semi-supervised pseudo-labelling performed just as poorly.</p>
+        <p>Supervised learning with surrogate targets worked best. Thresholds on total nitrogen and conductivity left no samples in the middle "may be present" class, so the final models were trained against chlorophyll-a instead, using Health Canada's 33&nbsp;&micro;g/L guideline for primary-contact water. Because chlorophyll-a is only the training target and not an input, the deployed device never needs an expensive chlorophyll sensor.</p>
+        <p>Trained this way, random forest reached 78% accuracy with a macro F1-score of 0.68, and gradient boosting reached 74%. Both predicted all three risk levels and agreed with each other on 84.74% of test samples. Both models were also run on data collected by the device itself, demonstrating the full pipeline from sensor to cloud to risk rating.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Lessons and next steps</h2>
+      <div class="prose">
+        <p>The reservoir is larger than field use needs, which wastes time, power and reagent on every sample, and boosting 3.3&nbsp;V up to 12&nbsp;V for the solenoid drains a Li-ion battery within days, so a smaller reservoir and a native 3.3&nbsp;V valve are the main planned changes. The low-cost pH probe also needs frequent recalibration.</p>
+        <p>A blue dye stood in for the Molybdenum Blue phosphorus reagent to validate the colour-sensing pipeline, and no lab chlorophyll-a measurements were available for the device's own samples. Real reagents, a labelled dataset and field samples taken during bloom season would be the next step toward verifying the models in the field.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills and technologies</h2>
+      <div class="project-tags">
+        <span class="tag">IoT</span>
+        <span class="tag">Arduino</span>
+        <span class="tag">MQTT</span>
+        <span class="tag">ThingsBoard</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Sensor Integration</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Python</span>
+        <span class="tag">Random Forest</span>
+        <span class="tag">Gradient Boosting</span>
+        <span class="tag">Fusion 360</span>
+        <span class="tag">Technical Writing</span>
+      </div>
+    </section>
+
+    <div class="repo-cta">
+      <p>Source code, wiring diagrams, 3D models and full documentation are in the GitHub repository.</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://github.com/blainp/IOT-Algal-Bloom-Detection-and-Prevention-System" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> View full project on GitHub</a>
+        <a class="btn-outline" href="../index.html">Back to all projects</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Blain Polishak</p>
+    </div>
+  </footer>
+  <script src="../media-rows.js"></script>
+</body>
+</html>

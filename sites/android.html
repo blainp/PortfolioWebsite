@@ -3,69 +3,156 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Android Application Development | Blain Polishak</title>
+  <title>Aura: Android App with Firebase Backend | Blain Polishak</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Aura, a native Android app in Java with Firebase authentication, Realtime Database, Storage and location-aware preference matching and chat.">
   <link rel="stylesheet" href="../styles.css"/>
   <link rel="icon" href="../Images/blain image temp.png" type="image/x-icon">
 </head>
 <body>
-  <header>
-    <div class="container header-content">
-      <h1>Android Application Development</h1>
+  <div class="page-top" style="--poster-size: auto 62%; --poster-pos: right 4.5rem center;">
+    <div class="page-top-poster" style="background-image: url('../Images/Mobile App/Aura/PosterImage.png')" aria-hidden="true"></div>
+    <div class="container">
+      <a class="back-link" href="../index.html#software">&larr; All projects</a>
+      <h1>Aura: A Native Android App on a Firebase Backend</h1>
+      <p class="summary">A native Android app in Java that combines Firebase authentication, a Realtime Database, cloud image storage and device location to deliver preference-based profile matching, mutual-match detection and one-to-one chat.</p>
     </div>
-  </header>
+  </div>
 
   <main class="container">
     <section>
       <h2>Overview</h2>
-      <p>
-        Throughout my android development course, I was tasked with developing and designing several Java-based Android applications in Android Studio, applying the MVVM architecture to ensure clean 
-        code separation and long-term maintainability. My final project was a secure password manager app that utilized a master password, which was required to view other passwords, and local database storage to protect user credentials. 
-        I also designed and implemented a custom scientific calculator featuring BEDMAS parsing logic to handle complex arithmetic operations beyond the capabilities 
-        of a standard calculator project. Accross these projects I integrated dynamic and responsive UI components to deliver a smooth and intuitive mobile user
-        experience.
-      </p>
-    </section>
-
-    <section>
-      <h2>Gallery</h2>
-      <div class="projectSite-grid">
-        <img src="../Images/Mobile App/AndroidAppPic.JPG" class="projectSite-img" alt="Project image 1">
+      <div class="overview-grid">
+        <div class="prose">
+          <p>Aura is a full-stack mobile application built as a team project for an Android development course. The client is written in Java across 17 classes, targeting Android 7.0 (API 24) and up. All persistence, identity and media storage run on Firebase, so the app has no custom server.</p>
+          <p>Users sign up, build a profile with photos, and set matching preferences. The app then filters every other profile against those preferences, including distance computed from the device's location. Profiles are presented as swipeable cards. When two users accept each other the app detects the mutual match and opens a conversation between them.</p>
+          <p>Around that core sits the account management a production app needs: password changes and account deletion behind re-authentication, sign-out, and unmatching with conversation cleanup.</p>
+        </div>
+        <aside class="facts">
+          <h3>Project facts</h3>
+          <dl>
+            <div><dt>Type</dt><dd>Android development course project (team)</dd></div>
+            <div><dt>Language</dt><dd>Java, Android SDK (min API 24, target API 36)</dd></div>
+            <div><dt>Backend</dt><dd>Firebase Authentication, Realtime Database, Cloud Storage</dd></div>
+            <div><dt>Device features</dt><dd>Fused Location Provider, gesture handling, image picker</dd></div>
+            <div><dt>Libraries</dt><dd>Material Components, RecyclerView, Glide</dd></div>
+            <div><dt>Testing</dt><dd>Run on a physical Samsung device through Android Studio</dd></div>
+          </dl>
+        </aside>
       </div>
     </section>
 
     <section>
-      <h2>Video Demo</h2>
-     <div class="video-wrapper">
-      <iframe 
-      style="border: none;" 
-      src="https://www.youtube.com/embed/f2KKG3NH0xs?si=OYsks0rhSZlJWXeX" 
-      title="YouTube video player" 
-      frameborder="0" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-      allowfullscreen>
-    </iframe>
-  </div>
+      <h2>How it works</h2>
+
+      <div class="feature-split">
+        <div class="prose">
+          <h3>Authentication and account management</h3>
+          <p>Firebase Authentication handles email and password sign-up and sign-in. Sensitive operations such as changing a password or deleting an account require the user to re-authenticate with their current password first.</p>
+          <h3>Data model</h3>
+          <p>The Realtime Database holds three top-level collections: <em>Profile</em> (attributes, photo URLs, accepted and rejected lists, last known location), <em>Preferences</em> (the user's matching criteria) and <em>Conversations</em> (participants and timestamped messages). Profile photos are uploaded to Cloud Storage under a per-user path, and their download URLs are stored on the profile and rendered with Glide.</p>
+          <h3>Location-aware matching</h3>
+          <p>On launch the app reads the device location through the Fused Location Provider, falling back gracefully when permission is denied. It then loads candidate profiles and drops the current user, anyone already accepted or rejected, and anyone who fails the user's preference filters: gender (with an "either" option), multi-select ethnicity, minimum or maximum thresholds on numeric attributes, and a maximum distance computed with <code>Location.distanceBetween</code>.</p>
+        </div>
+        <div class="feature-shots pair">
+          <figure>
+            <img src="../Images/Mobile App/Aura/LoginScreen.png" alt="Aura sign-in screen with email and password fields" loading="lazy">
+          </figure>
+          <figure>
+            <img src="../Images/Mobile App/Aura/MainSwipeScreen.png" alt="Swipeable profile card with accept and reject buttons" loading="lazy">
+          </figure>
+        </div>
+      </div>
+
+      <div class="feature-split image-left">
+        <div class="prose">
+          <h3>Swiping and mutual-match detection</h3>
+          <p>A custom <code>GestureDetector</code>-based touch listener turns swipes and taps into accept and reject actions and steps through each profile's photos. On every accept the app checks whether the other user has already accepted the current user. If so, it creates a conversation keyed by the two user IDs sorted alphabetically, so both users always resolve to the same node and duplicates cannot be created.</p>
+          <h3>Computed profile score</h3>
+          <p>Each profile has a score from 0 to 1000 computed on demand from its attributes by a weighted formula on the profile model, and shown in the app header for whichever profile is on screen.</p>
+        </div>
+        <div class="feature-shots single">
+          <figure>
+            <img src="../Images/Mobile App/Aura/EditProfileScreen.png" alt="Profile settings with photo upload and matching preferences" loading="lazy">
+          </figure>
+        </div>
+      </div>
+
+      <div class="feature-split small-shots">
+        <div class="prose">
+          <h3>Chat</h3>
+          <p>Messages are stored under each conversation and ordered by timestamp. The chat list is built with RecyclerView adapters and sorted by the time of the most recent message. Either user can unmatch, which removes the match from their accepted list and deletes the conversation.</p>
+          <h3>Account settings</h3>
+          <p>Users can change their password, sign out or delete their account from a dedicated settings screen, with re-authentication guarding the destructive actions.</p>
+        </div>
+        <div class="feature-shots pair">
+          <figure>
+            <img src="../Images/Mobile App/Aura/ChatScreen.png" alt="One-to-one chat screen between two matched users" loading="lazy">
+          </figure>
+          <figure>
+            <img src="../Images/Mobile App/Aura/ChangeUserSettingsScreen.png" alt="Account settings with change password, sign out and delete account" loading="lazy">
+          </figure>
+        </div>
+      </div>
     </section>
 
     <section>
-      <h2>Technologies Used</h2>
+      <h2>Skills and technologies</h2>
       <div class="project-tags">
-        <span class="tag">JAVA</span>
+        <span class="tag">Java</span>
         <span class="tag">Android Studio</span>
-        <span class="tag">Android Full Stack</span>
-        <!-- Add relevant tags per project -->
+        <span class="tag">Firebase Authentication</span>
+        <span class="tag">Firebase Realtime Database</span>
+        <span class="tag">Firebase Cloud Storage</span>
+        <span class="tag">Location Services</span>
+        <span class="tag">RecyclerView</span>
+        <span class="tag">Material Design</span>
+        <span class="tag">Gesture Handling</span>
+        <span class="tag">Team Development</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Also built: earlier Android coursework</h2>
+      <div class="prose">
+        <p>
+          Earlier in the same course I designed and built several Java Android applications in Android Studio using the MVVM architecture for code separation and long-term maintainability. My first major project was a secure password manager that required a master password to view stored credentials, backed by local database storage. I also implemented a custom scientific calculator with BEDMAS parsing logic to handle complex arithmetic beyond a standard calculator project, with responsive UI components throughout.
+        </p>
+      </div>
+      <div class="media-row wide">
+        <figure>
+          <img src="../Images/Mobile App/AndroidAppPic.JPG" alt="Screenshots of the password manager and scientific calculator apps" loading="lazy">
+        </figure>
+      </div>
+      <h3>Video demo</h3>
+      <div class="video-wrapper">
+        <iframe
+          style="border: none;"
+          src="https://www.youtube.com/embed/f2KKG3NH0xs?si=OYsks0rhSZlJWXeX"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="project-tags" style="margin-top: 1rem;">
+        <span class="tag">Java</span>
+        <span class="tag">MVVM</span>
+        <span class="tag">Local Database</span>
+        <span class="tag">Expression Parsing</span>
       </div>
     </section>
 
     <div class="text-center" style="margin-top: 2rem;">
-      <a href="../index.html#software" class="btn1">← Back to Projects</a>
+      <a href="../index.html#software" class="btn1">&larr; Back to Projects</a>
     </div>
   </main>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Blain Polishak. All rights reserved.</p>
+      <p>&copy; 2026 Blain Polishak. All rights reserved.</p>
     </div>
   </footer>
+  <script src="../media-rows.js"></script>
 </body>
 </html>

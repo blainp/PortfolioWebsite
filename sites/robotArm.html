@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1-Meter 3D-Printed Robotic Arm with a 1:5 Twin Controller | Blain Polishak</title>
+  <meta name="description" content="A fully custom, 3D-printed 5-axis robotic arm driven by four NEMA 17 steppers and two servos, controlled by moving a 1:5 scale potentiometer replica of the arm itself.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="../Images/blain image temp.png">
+</head>
+<body>
+  <div class="page-top">
+    <div class="page-top-poster" style="background-image: url('../Images/Arm/ArmMainPic.png')" aria-hidden="true"></div>
+    <div class="container">
+      <a class="back-link" href="../index.html">&larr; All projects</a>
+      <h1>1-Meter 3D-Printed Robotic Arm with a 1:5 Twin Controller</h1>
+      <p class="summary">A fully custom, 3D-printed 5-axis robotic arm driven by four NEMA 17 steppers and two servos, controlled by moving a 1:5 scale potentiometer replica of the arm itself.</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://github.com/blainp/5-Axis-Robotic-Arm-and-1-to-5-Scale-Potentiometer-Twin-Controller" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> View full project on GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <section>
+      <h2>Overview</h2>
+      <div class="overview-grid">
+        <div class="prose">
+          <p>The arm stands about a meter tall and was designed as a complete assembly in Fusion 360, then refined on the bench as issues came up. Everything is 3D printed, including the planetary gearboxes, except for one metal 71:1 gearbox on the base joint, where the printed version skipped under the weight of the fully extended arm.</p>
+          <p>Getting the base to rotate under load took a custom solution: two matching semi-circular channels filled with 6&nbsp;mm steel ball bearings carry the arm's weight into the base, so the gearbox only has to turn it rather than hold it up.</p>
+          <p>Keyboard control proved hard to use with five independent axes, so the arm is driven by a 1:5 scale physical twin with potentiometers in place of motors and a switch for the claw. Move the small arm, and the big arm follows.</p>
+        </div>
+      <aside class="facts">
+        <h3>Project facts</h3>
+        <dl>
+          <div><dt>Type</dt><dd>Personal hardware project</dd></div>
+          <div><dt>Reach</dt><dd>About 1 meter, 4 stepper joints plus wrist and claw</dd></div>
+          <div><dt>Motors</dt><dd>4&times; NEMA 17 steppers, MG996R servo wrist, servo claw</dd></div>
+          <div><dt>Control</dt><dd>2 Arduinos and a Python/tkinter master app</dd></div>
+          <div><dt>Gearing</dt><dd>Printed 80:1 planetary gearboxes, metal 71:1 on the base</dd></div>
+        </dl>
+      </aside>
+      </div>
+    </section>
+
+    <div class="media-row">
+      <figure>
+        <img src="https://github.com/user-attachments/assets/d884b007-47e7-4f2a-899d-c51433145355" alt="Fusion 360 model of the 5-axis robotic arm" loading="lazy">
+      </figure>
+      <figure>
+        <img src="https://github.com/user-attachments/assets/50e3c30f-8a51-46f6-9174-8a63ff34b130" alt="Model of the potentiometer twin controller" loading="lazy">
+      </figure>
+    </div>
+
+    <section>
+      <h2>The build</h2>
+    <div class="media-row">
+      <figure>
+        <img src="../Images/Arm/ArmMainPic.png" alt="The completed robotic arm" loading="lazy">
+      </figure>
+      <figure>
+        <img src="https://github.com/user-attachments/assets/d2de7196-6e24-484a-9688-bf4670c581c0" alt="The completed robotic arm and controller" loading="lazy">
+      </figure>
+    </div>
+      <div class="prose">
+        <p>The system runs across two Arduinos and one Python app. The arm's Arduino drives the steppers with AccelStepper and the servos with ServoTimer2, parses position commands over serial, ramps motor speed smoothly, and reports live joint angles back every 100&nbsp;ms. The controller's Arduino reads five potentiometers and the claw switch and streams them out over its own serial port.</p>
+        <p>The Python/tkinter app ties it together. It smooths the noisy potentiometer readings with a median filter and an exponential moving average, then drives the arm either in potentiometer mode, with rate-limited movement so the arm can't jump, or in a manual mode with press-and-hold buttons for fine positioning.</p>
+      </div>
+    <div class="media-row wide">
+      <figure>
+        <img src="https://github.com/user-attachments/assets/506e4406-2a06-4dfe-85a4-60b76ff7470b" alt="Wiring schematic for the robotic arm" loading="lazy">
+      </figure>
+    </div>
+    </section>
+
+    <section>
+      <h2>Test video</h2>
+    <div class="video vertical">
+      <iframe src="https://www.youtube-nocookie.com/embed/nVT7Rkr5fk8" title="Robotic arm test" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    </section>
+
+    <section>
+      <h2>Next steps</h2>
+      <div class="prose">
+        <p>Joint angles are currently estimated by counting stepper rotations through the gearbox ratio, so a skipped gear from a bump or collision can put the real and virtual angles out of sync. Rotary encoders on the gearbox outputs would let the system verify each joint's true position. The biggest issue, however, is the infil density of the base, which causes the entire arm to bounce when moving fully extended. The base flexes under heavy load, and any change in movement causes the entire arm to move much less predicatbly. Improving the density and strenght of the base, possibly with reinforcement plates or stiffer filament, is therefore the most prominent improvemnet for a future version</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills and technologies</h2>
+      <div class="project-tags">
+        <span class="tag">Fusion 360</span>
+        <span class="tag">3D Printing</span>
+        <span class="tag">Planetary Gearbox Design</span>
+        <span class="tag">Arduino</span>
+        <span class="tag">C++</span>
+        <span class="tag">Python</span>
+        <span class="tag">tkinter</span>
+        <span class="tag">Serial Communication</span>
+        <span class="tag">Stepper and Servo Control</span>
+        <span class="tag">Signal Filtering</span>
+      </div>
+    </section>
+
+    <div class="repo-cta">
+      <p>Source code, wiring diagrams, 3D models and full documentation are in the GitHub repository.</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://github.com/blainp/5-Axis-Robotic-Arm-and-1-to-5-Scale-Potentiometer-Twin-Controller" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> View full project on GitHub</a>
+        <a class="btn-outline" href="../index.html">Back to all projects</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Blain Polishak</p>
+    </div>
+  </footer>
+  <script src="../media-rows.js"></script>
+</body>
+</html>

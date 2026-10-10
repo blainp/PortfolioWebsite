@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Identifying Musicians by How They Play: MIDI Behavioural Biometrics | Blain Polishak</title>
+  <meta name="description" content="A machine learning system that identifies which musician is playing a keyboard from their MIDI performance data alone, using timing, velocity, articulation and pitch movement as a behavioural fingerprint.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="../Images/blain image temp.png">
+</head>
+<body>
+  <div class="page-top">
+    <div class="page-top-poster" style="background-image: url('../Images/MIDI/FingerPianoPosterImage.png')" aria-hidden="true"></div>
+    <div class="container">
+      <a class="back-link" href="../index.html">&larr; All projects</a>
+      <h1>Identifying Musicians by How They Play: MIDI Behavioural Biometrics</h1>
+      <p class="summary">A machine learning system that identifies which musician is playing a keyboard from their MIDI performance data alone, using timing, velocity, articulation and pitch movement as a behavioural fingerprint.</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://github.com/blainp/Behavioral-Biometric-Identification-Using-MIDI-Keyboard-Performance-Signatures" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> View full project on GitHub</a>
+        <a class="btn-outline" href="https://www.doi.org/10.5281/zenodo.21863356" target="_blank" rel="noopener">Technical Report (DOI Preprint)</a>
+        <a class="btn-outline" href="https://github.com/blainp/Behavioral-Biometric-Identification-Using-MIDI-Keyboard-Performance-Signatures/blob/main/Documentation/BehaviouralBiometricsPresentation.pdf" target="_blank" rel="noopener">Presentation slides</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <section>
+      <h2>Overview</h2>
+      <div class="overview-grid">
+        <div class="prose">
+          <p>For a behavioural biometrics course, my team and I were asked to build an authentication system that recognises people by how they act rather than what they know or their physical attributes. We chose music, and wanted to find out whether performance data like timing, touch, and pitch movement, can carry a distinct signature strong enough to identify a player, even if they are improvising over a jazz standard instead of playing a set piece of music.</p>
+          <p>We focused our attention on MIDI keyboards, as they records when each note starts and ends, how hard it&rsquo;s struck (in keyboards with "aftertouch" technologies), and how the hands travel between keys. For our project, we cut MIDI recordings into 30-second windows, turned the raw MIDI data into engineered features, and then used these features to train machine learning models that predict which performer is currently playing. Per-window predictions are averaged to name the performer of a full recording, with a score representing the model's confidence in its decision.</p>
+          <p>Three approaches were compared: a voting ensemble, a scaling&nbsp;+ PCA&nbsp;+ logistic regression pipeline, and a stacked model where random forest and KNN feed a logistic regression.</p>
+          <p>The test that mattered used complete performances the models had never seen. All three identified the correct player in all 7 recordings, including sessions where the player deliberately changed their style, which suggests the system is picking up deeper motor habits rather than surface-level style.</p>
+        </div>
+      <aside class="facts">
+        <h3>Project facts</h3>
+        <dl>
+          <div><dt>Type</dt><dd>Research project with a DOI pre-print IEEE-format technical report</dd></div>
+          <div><dt>Authors</dt><dd>Blain Polishak and Aidan Evans</dd></div>
+          <div><dt>Result</dt><dd>7 of 7 unseen performances identified correctly, mean confidenc of approximately 80%</dd></div>
+          <div><dt>Split-test accuracy</dt><dd>92-95%</dd></div>
+          <div><dt>Stack</dt><dd>Python, pandas, scikit-learn, Jupyter</dd></div>
+        </dl>
+      </aside>
+      </div>
+    </section>
+
+    <section>
+      <h2>System pipeline</h2>
+    <div class="media-row wide">
+      <figure>
+        <img src="https://github.com/user-attachments/assets/a36d9446-681e-41ec-9586-0407a3ce6564" alt="Pipeline from MIDI recording through feature extraction to three model ensembles" loading="lazy">
+      </figure>
+    </div>
+    </section>
+
+    <section>
+      <h2>Raw and extracted features</h2>
+      <div class="prose">
+        <p>Each recording captures raw MIDI events: note timing, pitch and on/off velocity. These are then condensed into per-performance behavioural features covering loudness, timing, articulation, pitch movement, chords and arpeggios, and grace notes.</p>
+      </div>
+    <div class="media-row wide">
+      <figure>
+        <img src="../Images/MIDI/RawFeatures.png" alt="Table of raw MIDI features captured during recording" loading="lazy">
+      </figure>
+    </div>
+    <div class="media-row wide">
+      <figure>
+        <img src="../Images/MIDI/ExtractedFeatures.png" alt="Table of behavioural features derived from raw MIDI data" loading="lazy">
+      </figure>
+    </div>
+    </section>
+
+    <section>
+      <h2>Model comparison</h2>
+      <div class="prose">
+        <p>Three ensembles were compared: soft voting, a PCA pipeline and stacking. Cross-validation accuracy was 92-95% for all three, and performance on unseen recordings was lower, with the PCA pipeline holding up best.</p>
+      </div>
+    <div class="media-row wide">
+      <figure style="flex-basis: 700px">
+        <img src="../Images/MIDI/ModelComparison.png" alt="Bar chart comparing cross-validation accuracy and unseen performance confidence for the soft voting, PCA pipeline and stacking models" loading="lazy">
+      </figure>
+    </div>
+    </section>
+
+    <section>
+      <h2>What the models learned</h2>
+      <div class="prose">
+        <p>Features cover rhythm and timing (inter-onset intervals, articulation), dynamics (velocity trends), pitch movement and range, chord density, and arpeggio and grace-note structure. The chart shows which of them mattered most for telling players apart.</p>
+      </div>
+    <div class="media-row wide">
+      <figure style="flex-basis: 600px">
+        <img src="https://github.com/user-attachments/assets/a99bdd42-1f46-4f0f-a73c-f10a7df79de6" alt="Bar chart of feature importance for performer identification" loading="lazy">
+      </figure>
+    </div>
+    </section>
+
+    <section>
+      <h2>Limitations and next steps</h2>
+      <div class="prose">
+        <p>The dataset covers 5 participants, which limits how far the results generalize. Future work includes pedal and micro-timing features, sequence models such as RNNs or transformers, and live authentication during a performance.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills and technologies</h2>
+      <div class="project-tags">
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Python</span>
+        <span class="tag">scikit-learn</span>
+        <span class="tag">pandas</span>
+        <span class="tag">Jupyter</span>
+        <span class="tag">Feature Engineering</span>
+        <span class="tag">Ensemble Models</span>
+        <span class="tag">MIDI</span>
+        <span class="tag">Technical Writing</span>
+      </div>
+    </section>
+
+    <div class="repo-cta">
+      <p>Source code, wiring diagrams, 3D models and full documentation are in the GitHub repository.</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://github.com/blainp/Behavioral-Biometric-Identification-Using-MIDI-Keyboard-Performance-Signatures" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> View full project on GitHub</a>
+        <a class="btn-outline" href="../index.html">Back to all projects</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Blain Polishak</p>
+    </div>
+  </footer>
+  <script src="../media-rows.js"></script>
+</body>
+</html>

@@ -4,27 +4,45 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Inventory Management System | Blain Polishak</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css"/>
   <link rel="icon" href="../Images/blain image temp.png" type="image/x-icon">
 </head>
 <body>
-  <header>
-    <div class="container header-content">
+  <div class="page-top">
+    <div class="page-top-poster" style="background-image: url('../Images/Database/Databasepic.JPG')" aria-hidden="true"></div>
+    <div class="container">
+      <a class="back-link" href="../index.html#software">&larr; All projects</a>
       <h1>Inventory Management System</h1>
+      <p class="summary">A PHP and SQL web app for cataloguing where my tools and materials are stored, with secure logins, role-based access control and photos of each storage room.</p>
     </div>
-  </header>
+  </div>
 
   <main class="container">
     <section>
       <h2>Overview</h2>
-      <p>
-        As a PHP and SQL project, I decided to develop an inventory management system which helped me organize and catalog the locations and rooms in which my various tools and materials are stored.
-        The website allows users to login and efficiently catalog, search, and retrieve personal items through a user-friendly web interface, displaying a name and picture of the room in which an item 
-        is stored, in addition to the specific location in said room in which it is stored. I implemented a secure authentication system featuring hashed passwords 
-        and role-based access control (RBAC) to ensure only authorized users could access or modify data. I also developed a database which safely 
-        stored sensitive information and images, maintained data privacy and integrity, and optimized many-to-one relational table structures to
-        support scalability, enabling smooth handling of complex, linked data relationships as the inventory grows. All forms in the page support error handling and incorrect input rejection.
-      </p>
+      <div class="overview-grid">
+        <div>
+        <p>
+          As a PHP and SQL project, I decided to develop an inventory management system which helped me organize and catalog the locations and rooms in which my various tools and materials are stored.
+          The website allows users to login and efficiently catalog, search, and retrieve personal items through a user-friendly web interface, displaying a name and picture of the room in which an item 
+          is stored, in addition to the specific location in said room in which it is stored. I implemented a secure authentication system featuring hashed passwords 
+          and role-based access control (RBAC) to ensure only authorized users could access or modify data. I also developed a database which safely 
+          stored sensitive information and images, maintained data privacy and integrity, and optimized many-to-one relational table structures to
+          support scalability, enabling smooth handling of complex, linked data relationships as the inventory grows. All forms in the page support error handling and incorrect input rejection.
+        </p>
+        </div>
+        <aside class="facts">
+          <h3>Project facts</h3>
+          <dl>
+            <div><dt>Type</dt><dd>PHP and SQL course project</dd></div>
+            <div><dt>Stack</dt><dd>PHP, SQL, AJAX and CSS on XAMPP</dd></div>
+            <div><dt>Security</dt><dd>Hashed passwords and role-based access control</dd></div>
+            <div><dt>Data</dt><dd>Relational database of items, rooms and storage locations, with photos</dd></div>
+            <div><dt>Validation</dt><dd>Error handling and invalid input rejection on every form</dd></div>
+          </dl>
+        </aside>
+      </div>
     </section>
 
     <section>
@@ -69,7 +87,7 @@
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Blain Polishak. All rights reserved.</p>
+      <p>&copy; 2026 Blain Polishak. All rights reserved.</p>
     </div>
   </footer>
 </body>
