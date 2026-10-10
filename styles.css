@@ -158,10 +158,24 @@ nav { background-color: var(--primary); position: sticky; top: 0; z-index: 100; 
     border-radius: var(--radius-sm); overflow: hidden;
     display: flex; flex-direction: column;
 }
-.project-img { width: 100%; height: 200px; object-fit: contain; background: #111316; display: block; }
+/* Fixed frame: holds the backdrop and clips the hover zoom, so the image area's edges never move */
+.project-media { height: 200px; background: #111316; overflow: hidden; }
+.project-img { width: 100%; height: 100%; object-fit: contain; display: block; transform: scale(var(--img-scale, 1)); }
 .project-content { padding: 1.25rem 1.25rem 0.5rem; flex: 1; display: flex; flex-direction: column; }
 .project-content h3 { font-size: 1.2rem; }
 .project-card > .btn { align-self: flex-start; margin: 0.5rem 1.25rem 1.25rem; }
+
+/* ===== Desktop hover: gentle zoom on project imagery ===== */
+/* Pointer-based query keeps this off touch devices, where there is no hover state to leave */
+@media (hover: hover) and (pointer: fine) and (min-width: 769px) and (prefers-reduced-motion: no-preference) {
+    .project-img, .featured-media img { transition: transform 0.35s ease; }
+    /* :has() reaches back to the image from the "View project" button, which follows it in the DOM.
+       Plain .btn matches only that button; the paper and GitHub links use .btn-paper / .btn-outline */
+    .project-card:has(> .btn:hover) .project-img { transform: scale(calc(var(--img-scale, 1) * 1.035)); }
+    /* Featured pulls back instead of pushing in; translateX(-50%) is the base centring from
+       .featured-media img, and transform-origin is set by the sizing script */
+    .featured:has(.card-actions .btn:hover) .featured-media img { transform: translateX(-50%) scale(0.975); }
+}
 
 .project-tags { display: flex; flex-wrap: wrap; margin-top: auto; padding-top: 0.75rem; gap: 0.45rem; }
 .tag {
