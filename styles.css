@@ -289,3 +289,59 @@ footer p { margin: 0; }
     .feature-split.image-left .feature-shots { order: 0; }
     .feature-shots.single figure { flex-basis: 70%; }
 }
+
+/* ===== Mobile project carousels (see carousel.js) ===== */
+/* Same 768px breakpoint as the nav. Native scroll-snap does the finger tracking, flick and snap;
+   the script only adds wrap-around (by rotating --carousel-order), the counter and the swipe cue */
+.carousel-bar, .swipe-cue { display: none; }
+@media (max-width: 768px) {
+    .carousel-bar { display: flex; justify-content: flex-end; font-size: 0.8rem; line-height: 1.4; margin: 1.25rem 0 0.5rem; }
+    .carousel-count { opacity: 0.5; font-variant-numeric: tabular-nums; }
+
+    /* Translucent pill along the bottom of the first project's image; never blocks taps */
+    .carousel .project-media { position: relative; }
+    .swipe-cue {
+        display: flex; align-items: center; gap: 0.5rem;
+        position: absolute; left: 50%; bottom: 0.75rem; transform: translateX(-50%);
+        padding: 0.35rem 0.85rem; border-radius: 999px; white-space: nowrap; pointer-events: none;
+        background: rgba(17, 19, 22, 0.45); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+        color: rgba(255, 255, 255, 0.85); font-size: 0.8rem; line-height: 1.4;
+        opacity: 0; transition: opacity 0.5s ease;
+    }
+    .swipe-cue.is-shown { opacity: 1; }
+    .swipe-cue svg { width: 1.6em; height: 0.75em; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+    .featured-list.carousel, .project-grid.carousel {
+        display: flex; flex-direction: row; gap: 1rem; margin-top: 0; position: relative;
+        overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory; scrollbar-width: none;
+    }
+    .carousel::-webkit-scrollbar { display: none; }
+    /* Default align-items: stretch gives every card in a track the height of that track's tallest card */
+    .carousel > * { flex: 0 0 100%; scroll-snap-align: start; scroll-snap-stop: always; order: var(--carousel-order, 0); }
+    /* The stretched height goes to the text, not the image frame */
+    .carousel > .featured { grid-template-rows: auto 1fr; }
+
+    /* Compact featured cards: shorter image, project-card type sizes, and the description clamped
+       to four lines (the full text is on each project page) */
+    .carousel .featured-media { min-height: 0; height: 190px; }
+    .carousel .featured-body { padding: 1.25rem; }
+    .carousel .featured-body h3 { font-size: 1.2rem; }
+    .carousel .featured-body > p {
+        display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; line-clamp: 4; overflow: hidden;
+    }
+    .carousel .card-actions a { padding: 0.5rem 0.9rem; font-size: 0.9rem; }
+    /* Tags and buttons sit together at the bottom; any spare height opens up above the tags.
+       (Both had margin-top: auto, which split the spare height and left the tags floating mid-card) */
+    .carousel .featured-body .project-tags { margin-bottom: 1rem; }
+    .carousel .card-actions { margin-top: 0; gap: 0.5rem; }
+}
+/* The arrows nudge side to side twice as the cue appears */
+@media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+    .swipe-cue.is-shown svg { animation: swipe-cue-nudge 1.4s ease-in-out 0.5s 2; }
+}
+@keyframes swipe-cue-nudge {
+    0%, 100% { transform: translateX(0); }
+    30% { transform: translateX(-4px); }
+    65% { transform: translateX(4px); }
+}
