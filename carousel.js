@@ -66,13 +66,22 @@
       count.textContent = `${current + 1} / ${n}`;
     };
 
+    // Index of the card whose left edge is closest to scroll position x
+    const nearest = x => {
+      let best = current, bestDist = Infinity;
+      cards.forEach((c, i) => {
+        const d = Math.abs(c.offsetLeft - x);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      return best;
+    };
+
     // Runs once motion has stopped on a snap point; mid-drag or mid-snap positions are ignored.
     // The reorder happens only at rest, so it is never visible
     const settle = () => {
       if (touching || !mq.matches) return;
       const x = track.scrollLeft;
-      const i = cards.findIndex(c => Math.abs(c.offsetLeft - x) < 1);
-      if (i < 0) return;
+      const i = nearest(x);
       if (i !== current) { current = i; finishCue(); }
       if (cards[current].style.getPropertyValue('--carousel-order') !== '1') layout();
       // A drag that snapped back to the first card brings the cue back after the usual pause
@@ -87,6 +96,8 @@
     track.addEventListener('touchend', release, { passive: true });
     track.addEventListener('touchcancel', release, { passive: true });
     track.addEventListener('scroll', () => {
+      // Live counter: follows the nearest card while scrolling; reordering still waits for rest
+      if (mq.matches) count.textContent = `${nearest(track.scrollLeft) + 1} / ${n}`;
       // Dragging hides the cue, but it is only retired once the card actually changes, so a
       // slightly diagonal page scroll over the cards can't use it up
       if (Math.abs(track.scrollLeft - cards[current].offsetLeft) > 8) hideCue();
