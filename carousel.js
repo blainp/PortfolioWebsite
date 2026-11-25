@@ -22,7 +22,7 @@
     bar.className = 'carousel-bar';
     bar.innerHTML = '<span class="carousel-count" aria-hidden="true"></span>';
     const count = bar.firstChild;
-    track.before(bar);
+    track.after(bar);
     track.classList.add('carousel');
 
     // Swipe cue over the first project's image. Purely visual: screen readers move through cards anyway
